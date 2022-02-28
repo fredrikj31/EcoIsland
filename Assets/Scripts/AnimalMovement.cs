@@ -10,10 +10,13 @@ public class AnimalMovement : MonoBehaviour
 	public float speed = 2f;
 	private Rigidbody2D rb;
 	private Vector3 newPos;
+	private SpriteRenderer sprite;
 
 	void Start() {
 		this.rb = this.GetComponent<Rigidbody2D>();
 		this.newPos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+
+		this.sprite = this.GetComponent<SpriteRenderer>();
 
 		InvokeRepeating("moveAnimal", 0f, this.moveInterval);
 	}
@@ -39,6 +42,14 @@ public class AnimalMovement : MonoBehaviour
 
 		if (this.ground.GetTile(tempPos) != null) {
 			if (this.ground.GetTile(tempPos).name == "Grass") {
+				if (xValue < 0) {
+					// Left
+					this.sprite.flipX = false;
+				} else {
+					// Right
+					this.sprite.flipX = true;
+				}
+
 				this.newPos = new Vector3((this.transform.position.x + xValue), (this.transform.position.y + yValue), this.transform.position.z);
 			} else {
 				this.moveAnimal();

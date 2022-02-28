@@ -29,7 +29,12 @@ public class CropsController : MonoBehaviour
 
 		if (Input.GetMouseButtonUp(0)) {
 			if(Time.time - downClickTime <= ClickDeltaTime) {
-            	Debug.Log(this.cropsMap.GetTile(this.getMousePosition()).name);
+				if (this.cropsMap.GetTile(this.getMousePosition()) != null) {
+					TileBase clickedTile = this.cropsMap.GetTile(this.getMousePosition());
+					if (clickedTile.name == "Field") {
+            			Debug.Log(this.cropsMap.GetTile(this.getMousePosition()).name);
+					}
+				}
 			}
 		}
 	}
