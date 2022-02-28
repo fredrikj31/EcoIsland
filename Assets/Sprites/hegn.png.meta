@@ -1,40 +1,40 @@
 fileFormatVersion: 2
-guid: f3a9843aefcd7d3438ee2462b58428f1
+guid: 6ab775ecffaf1cf4c991a999347b8d5f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -370353096244059863
-    second: kanter_0
+      213: 8246650966354962005
+    second: hegn_0
   - first:
-      213: -7005802801826585459
-    second: kanter_1
+      213: 8003240894673147479
+    second: hegn_1
   - first:
-      213: 4141186674740698321
-    second: kanter_2
+      213: -6255082130782382207
+    second: hegn_2
   - first:
-      213: -886001809241585579
-    second: kanter_3
+      213: -2548628178377039291
+    second: hegn_3
   - first:
-      213: 4024828017083156304
-    second: kanter_4
+      213: -801168172244759373
+    second: hegn_4
   - first:
-      213: 8062679228581888219
-    second: kanter_5
+      213: 168871407664609051
+    second: hegn_5
   - first:
-      213: -7473814284364355711
-    second: kanter_6
+      213: 5321040642414535761
+    second: hegn_6
   - first:
-      213: 2489412626004678286
-    second: kanter_7
+      213: 6264783960972511360
+    second: hegn_7
   - first:
-      213: 2677502243333407550
-    second: kanter_8
+      213: -7920556245366755579
+    second: hegn_8
   - first:
-      213: 8494763550990724107
-    second: kanter_9
+      213: 7013573991738535108
+    second: hegn_9
   - first:
-      213: 8694382658832686948
-    second: kanter_10
+      213: -8994139481432559365
+    second: hegn_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kanter_0
+      name: hegn_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92128e832dd3cdaf0800000000000000
-      internalID: -370353096244059863
+      spriteID: 556283c7c5df17270800000000000000
+      internalID: 8246650966354962005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanter_1
+      name: hegn_1
       rect:
         serializedVersion: 2
         x: 24
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d84a0b6587366ce90800000000000000
-      internalID: -7005802801826585459
+      spriteID: 7565fd2d039311f60800000000000000
+      internalID: 8003240894673147479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanter_2
+      name: hegn_2
       rect:
         serializedVersion: 2
         x: 48
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dc1088f653787930800000000000000
-      internalID: 4141186674740698321
+      spriteID: 18792d161fb7139a0800000000000000
+      internalID: -6255082130782382207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanter_3
+      name: hegn_3
       rect:
         serializedVersion: 2
         x: 72
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5584dc97c0a44b3f0800000000000000
-      internalID: -886001809241585579
+      spriteID: 542294bcc2471acd0800000000000000
+      internalID: -2548628178377039291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanter_4
+      name: hegn_4
       rect:
         serializedVersion: 2
         x: 96
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0570840d1cf0bd730800000000000000
-      internalID: 4024828017083156304
+      spriteID: 3bc8008cacda1e4f0800000000000000
+      internalID: -801168172244759373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanter_5
+      name: hegn_5
       rect:
         serializedVersion: 2
         x: 120
@@ -255,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd04b8d5a0464ef60800000000000000
-      internalID: 8062679228581888219
+      spriteID: b17b19a86a3f75200800000000000000
+      internalID: 168871407664609051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanter_6
+      name: hegn_6
       rect:
         serializedVersion: 2
         x: 144
@@ -276,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 187e83f918da74890800000000000000
-      internalID: -7473814284364355711
+      spriteID: 154e88ea54228d940800000000000000
+      internalID: 5321040642414535761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanter_7
+      name: hegn_7
       rect:
         serializedVersion: 2
         x: 168
@@ -297,14 +297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e869168089b2c8220800000000000000
-      internalID: 2489412626004678286
+      spriteID: 088c45cf1dbf0f650800000000000000
+      internalID: 6264783960972511360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanter_8
+      name: hegn_8
       rect:
         serializedVersion: 2
         x: 192
@@ -318,14 +318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e330333ba16682520800000000000000
-      internalID: 2677502243333407550
+      spriteID: 50fa96b4f08841290800000000000000
+      internalID: -7920556245366755579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanter_9
+      name: hegn_9
       rect:
         serializedVersion: 2
         x: 216
@@ -339,14 +339,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0cecb3417673e570800000000000000
-      internalID: 8494763550990724107
+      spriteID: 4cc6e7fc268355160800000000000000
+      internalID: 7013573991738535108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanter_10
+      name: hegn_10
       rect:
         serializedVersion: 2
         x: 240
@@ -360,8 +360,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46fd901a6f6a8a870800000000000000
-      internalID: 8694382658832686948
+      spriteID: bf075ec6bc56e2380800000000000000
+      internalID: -8994139481432559365
       vertices: []
       indices: 
       edges: []
