@@ -19,6 +19,7 @@ public class CropsController : MonoBehaviour
     void Start()
     {
 		InvokeRepeating("updateCropsTime", 0f, 1f);
+		this.getAllTiles();
     }
 
 	void Update() 
@@ -43,6 +44,22 @@ public class CropsController : MonoBehaviour
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         return grid.WorldToCell(mouseWorldPos);
     }
+
+	private void getAllTiles() {
+		BoundsInt bounds = this.cropsMap.cellBounds;
+        TileBase[] allTiles = this.cropsMap.GetTilesBlock(bounds);
+
+		Debug.Log(allTiles.Length);
+	}
+
+	private void deleteAllTiles() {
+		BoundsInt bounds = this.cropsMap.cellBounds;
+        TileBase[] allTiles = this.cropsMap.GetTilesBlock(bounds);
+
+		foreach (TileBase tile in allTiles) {
+			
+		}
+	}
 
 	private void updateCropsTime() {
 		if (this.crops.Count > 0) {	
