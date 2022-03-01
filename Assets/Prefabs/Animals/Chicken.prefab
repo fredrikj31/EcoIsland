@@ -165,5 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ground: {fileID: 0}
-  moveInterval: 10
+  moveIntervalMinMax:
+  - 10
+  - 20
   speed: 2

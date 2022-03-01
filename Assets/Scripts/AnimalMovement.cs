@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class AnimalMovement : MonoBehaviour
 {
 	public Tilemap ground;
-	public float moveInterval = 10f;
+	public float[] moveIntervalMinMax = new float[2];
 	public float speed = 2f;
 	private Rigidbody2D rb;
 	private Vector3 newPos;
@@ -18,7 +18,7 @@ public class AnimalMovement : MonoBehaviour
 
 		this.sprite = this.GetComponent<SpriteRenderer>();
 
-		InvokeRepeating("moveAnimal", 0f, this.moveInterval);
+		Invoke("moveAnimal", 3f);
 	}
 
 	void Update() {
@@ -51,12 +51,13 @@ public class AnimalMovement : MonoBehaviour
 				}
 
 				this.newPos = new Vector3((this.transform.position.x + xValue), (this.transform.position.y + yValue), this.transform.position.z);
+				// Move animal again
+				Invoke("moveAnimal", Random.Range(this.moveIntervalMinMax[0], this.moveIntervalMinMax[1]));
 			} else {
 				this.moveAnimal();
 			}
 		} else {
 			this.moveAnimal();
 		}
-
 	}
 }
