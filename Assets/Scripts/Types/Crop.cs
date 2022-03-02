@@ -28,11 +28,13 @@ namespace EcoIsland
 		// Check time
 		public int checkTime()
 		{
+
 			// Calculate time
 			DateTime now = DateTime.Now;
 			TimeSpan difference = now.Subtract(this.plantedTime);
 
-			double procents = (difference.Seconds / this.growTime[this.cropType]) * 100;
+			double procents = (difference.TotalSeconds / this.growTime[this.cropType]) * 100;
+			Debug.Log(procents);
 
 			// Stages: (0 = level 1), (1 = level 2), (2 = level 3)
 			if (procents <= 33.3)
@@ -54,13 +56,15 @@ namespace EcoIsland
 			DateTime now = DateTime.Now;
 			TimeSpan difference = now.Subtract(this.plantedTime);
 
-			double procents = (difference.Seconds / this.growTime[this.cropType]) * 100;
+			double procents = (difference.TotalSeconds / this.growTime[this.cropType]) * 100;
 
 			return procents;
 		}
 
 		public TimeSpan getRemainingTime() {
-			DateTime finishedDate = this.plantedTime.AddSeconds(this.growTime[this.cropType]);
+			DateTime plantTime = this.plantedTime;
+
+			DateTime finishedDate = plantTime.AddSeconds(this.growTime[this.cropType]);
 			TimeSpan remainingTime = finishedDate.Subtract(DateTime.Now);
 
 			return remainingTime;
