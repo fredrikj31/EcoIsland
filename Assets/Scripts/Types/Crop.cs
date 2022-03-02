@@ -3,40 +3,68 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class Crop
+namespace EcoIsland
 {
-	public string cropType;
-	public DateTime plantedTime;
-	public Vector3Int position;
+	public class Crop
+	{
+		public CropTypes cropType;
+		public DateTime plantedTime;
+		public Vector3Int position;
 
-	public Crop(string type, DateTime plantedTime, Vector3Int pos) {
-		this.cropType = type;
-		this.plantedTime = plantedTime;
-		this.position = pos;
-	}
+		public Crop(CropTypes type, DateTime plantedTime, Vector3Int pos)
+		{
+			this.cropType = type;
+			this.plantedTime = plantedTime;
+			this.position = pos;
+		}
 
-	// Times
-	private Dictionary<string, float> growTime = new Dictionary<string, float>() {
-		{"Wheat", 2},
-		{"Corn", 5},
-		{"Carrot", 10},
-	};
+		// Times (in Seconds)
+		private Dictionary<CropTypes, double> growTime = new Dictionary<CropTypes, double>() {
+			{CropTypes.Wheat, 120},
+			{CropTypes.Corn, 300},
+			{CropTypes.Carrot, 600},
+		};
 
-	// Check time
-	public int checkTime() {
-		// Calculate time
-		DateTime now = DateTime.Now;
-		TimeSpan difference = now.Subtract(this.plantedTime);
+		// Check time
+		public int checkTime()
+		{
+			// Calculate time
+			DateTime now = DateTime.Now;
+			TimeSpan difference = now.Subtract(this.plantedTime);
 
-		double procents = (difference.Minutes / this.growTime[this.cropType]) * 100;
+			double procents = (difference.Seconds / this.growTime[this.cropType]) * 100;
 
-		// Stages: (0 = level 1), (1 = level 2), (2 = level 3)
-		if (procents <= 33.3) {
-			return 0;
-		} else if (procents > 33.3 && procents <= 66.6) {
-			return 1;
-		} else {
-			return 2;
+			// Stages: (0 = level 1), (1 = level 2), (2 = level 3)
+			if (procents <= 33.3)
+			{
+				return 0;
+			}
+			else if (procents > 33.3 && procents <= 66.6)
+			{
+				return 1;
+			}
+			else
+			{
+				return 2;
+			}
+		}
+
+		public double getProcents() {
+			// Calculate time
+			DateTime now = DateTime.Now;
+			TimeSpan difference = now.Subtract(this.plantedTime);
+
+			double procents = (difference.Seconds / this.growTime[this.cropType]) * 100;
+
+			return procents;
+		}
+
+		public TimeSpan getRemainingTime() {
+			DateTime finishedDate = this.plantedTime.AddSeconds(this.growTime[this.cropType]);
+			TimeSpan remainingTime = finishedDate.Subtract(DateTime.Now);
+
+			return remainingTime;
 		}
 	}
+
 }
