@@ -32,9 +32,7 @@ namespace EcoIsland
 			// Calculate time
 			DateTime now = DateTime.Now;
 			TimeSpan difference = now.Subtract(this.plantedTime);
-
 			double procents = (difference.TotalSeconds / this.growTime[this.cropType]) * 100;
-			Debug.Log(procents);
 
 			// Stages: (0 = level 1), (1 = level 2), (2 = level 3)
 			if (procents <= 33.3)

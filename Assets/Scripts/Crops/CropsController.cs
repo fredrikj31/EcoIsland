@@ -93,7 +93,7 @@ namespace EcoIsland
 			BoundsInt bounds = this.cropsMap.cellBounds;
 			TileBase[] allTiles = this.cropsMap.GetTilesBlock(bounds);
 
-			Debug.Log(allTiles.Length);
+			//Debug.Log(allTiles.Length);
 		}
 
 		private void updateCropsTime()
