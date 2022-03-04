@@ -35,7 +35,6 @@ namespace EcoIsland
 			this.popupMenu = GameObject.FindGameObjectWithTag("PopupMenu");
 
 			InvokeRepeating("updateCropsTime", 0f, 1f);
-			this.getAllTiles();
 		}
 
 		void Update()
@@ -52,27 +51,23 @@ namespace EcoIsland
 					if (this.cropsMap.GetTile(this.getMousePosition()) != null)
 					{
 						TileBase clickedTile = this.cropsMap.GetTile(this.getMousePosition());
+						PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
 						if (clickedTile.name == "Field")
 						{
 							Vector3 cellPos = this.getCellPosition();
 							this.selectedTile = getMousePosition();
 
-							// Setting the trigger element
-							//this.selectCropMenu.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { Debug.Log("Hello World"); });
-							//this.selectCropMenu.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate { this.plantSelectedCrop("Corn"); });
-							//this.selectCropMenu.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(delegate { this.plantSelectedCrop("Carrot"); });
-
-							PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
 							menu.setPosition(cellPos);
 							menu.setObject(this.selectCropMenu);
 							menu.openPopup();
 						} else {
-							//Debug.Log("Hej med dig.");
 							Crop data = this.getDataFromTile(this.getMousePosition());
 
 							// Get cell position
 							Vector3 cellPos = this.getCellPosition();
 							TimeSpan remainingTime = data.getRemainingTime();
+
+							// Formatting the strings
 							string popupText = $"Type: {data.cropType.ToString()}\nGrowth: {Math.Round(data.getProcents(), 1)}%";
 							if (remainingTime.Hours > 0) {
 								popupText = $"Type: {data.cropType.ToString()}\nGrowth: {Math.Round(data.getProcents(), 1)}%\n{remainingTime.Hours} hrs {remainingTime.Minutes} min {remainingTime.Seconds} sec";
@@ -82,10 +77,8 @@ namespace EcoIsland
 								popupText = $"Type: {data.cropType.ToString()}\nGrowth: {Math.Round(data.getProcents(), 1)}%\n{remainingTime.Seconds} sec";
 							}
 
-							// Menu
+							// Formatting and setting up the menu
 							this.statusMenu.GetComponent<Text>().text = popupText;
-
-							PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
 							menu.setPosition(cellPos);
 							menu.setObject(this.statusMenu);
 							menu.openPopup();
@@ -105,14 +98,6 @@ namespace EcoIsland
 			return grid.GetCellCenterWorld(this.getMousePosition());
 		}
 
-		private void getAllTiles()
-		{
-			BoundsInt bounds = this.cropsMap.cellBounds;
-			TileBase[] allTiles = this.cropsMap.GetTilesBlock(bounds);
-
-			//Debug.Log(allTiles.Length);
-		}
-
 		private void updateCropsTime()
 		{
 			foreach (KeyValuePair<Vector3Int, Crop> crop in this.crops)
@@ -130,7 +115,7 @@ namespace EcoIsland
 						this.cropsMap.SetTile(crop.Value.position, this.carrotTiles[stage]);
 						break;
 					default:
-						Debug.Log("Fuck mand");
+						Debug.Log("A type that does not exists.");
 						break;
 				}
 			}
@@ -144,7 +129,7 @@ namespace EcoIsland
 
 		public void harvestCrop()
 		{
-
+			
 		}
 
 		public void plantCrop(CropTypes type, Vector3Int pos)
@@ -172,8 +157,6 @@ namespace EcoIsland
 		}
 
 		public void plantSelectedCrop(string crop) {
-			Debug.Log("Planted with : " + crop);
-
 			if (crop == "Wheat") {
 				this.plantCrop(CropTypes.Wheat, this.selectedTile);
 			} else if (crop == "Corn") {
@@ -181,12 +164,8 @@ namespace EcoIsland
 			} else if (crop == "Carrot") {
 				this.plantCrop(CropTypes.Carrot, this.selectedTile);
 			} else {
-				Debug.Log("You have misspelled one or more crops");
+				Debug.Log("You have misspelled one or more crops.");
 			}
-		}
-
-		public void Testing() {
-			Debug.Log("Testing123321");
 		}
 	}
 }
