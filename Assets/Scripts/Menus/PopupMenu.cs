@@ -7,18 +7,14 @@ public class PopupMenu : MonoBehaviour
 {
 	public Vector3 hiddenPos;
 	private Vector3 position;
-	private string text;
+	private GameObject menuObject;
 
-	private GameObject textObject;
 
     // Start is called before the first frame update
     void Start()
-    {
-        this.textObject = this.transform.GetChild(1).gameObject;
-		
+    {		
 		// Default values
 		this.transform.position = this.hiddenPos;
-		this.textObject.GetComponent<Text>().text = this.text;
     }
 
     // Update is called once per frame
@@ -29,8 +25,10 @@ public class PopupMenu : MonoBehaviour
 		}
     }
 
-	public void setText(string text) {
-		this.textObject.GetComponent<Text>().text = text;
+	public void setObject(GameObject inputObject) {
+		this.menuObject = Instantiate(inputObject);
+		this.menuObject.transform.SetParent(this.transform.GetChild(0));
+		this.menuObject.transform.localPosition = inputObject.transform.position;
 	}
 
 	public void setPosition(Vector3 pos) {

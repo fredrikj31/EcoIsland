@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 namespace EcoIsland
 {
@@ -16,6 +17,7 @@ namespace EcoIsland
 		public TileBase[] cornTiles = new TileBase[3];
 		public TileBase[] carrotTiles = new TileBase[3];
 		public Dictionary<Vector3Int, Crop> crops = new Dictionary<Vector3Int, Crop>();
+		public GameObject menuObject;
 
 		// Time management
 		private float downClickTime;
@@ -68,9 +70,11 @@ namespace EcoIsland
 							}
 
 							// Menu
+							this.menuObject.GetComponent<Text>().text = popupText;
+
 							PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
 							menu.setPosition(cellPos);
-							menu.setText(popupText);
+							menu.setObject(this.menuObject);
 							menu.openPopup();
 						}
 					}
