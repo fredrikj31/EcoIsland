@@ -42837,6 +42837,7 @@ GameObject:
   - component: {fileID: 1086448445}
   - component: {fileID: 1086448444}
   - component: {fileID: 1086448443}
+  - component: {fileID: 1086448448}
   - component: {fileID: 1086448447}
   m_Layer: 5
   m_Name: PopupMenu
@@ -42939,6 +42940,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenPos: {x: -100, y: -100, z: 0}
+--- !u!61 &1086448448
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086448442}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1109076447
 GameObject:
   m_ObjectHideFlags: 0
@@ -43294,7 +43321,7 @@ GameObject:
   - component: {fileID: 1477033959}
   m_Layer: 0
   m_Name: CropsController
-  m_TagString: Untagged
+  m_TagString: CropController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43325,7 +43352,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d463a5aa08f33684d8346fbce937fb02, type: 2}
   - {fileID: 11400000, guid: 59de5b042d670fa48a9289c4a9342935, type: 2}
   - {fileID: 11400000, guid: 1064dc374a3cf44428b627362ef3df77, type: 2}
-  menuObject: {fileID: 7050083759522424632, guid: 009e2cd40b296344ebe5546b907814c9, type: 3}
+  statusMenu: {fileID: 7050083759522424632, guid: 009e2cd40b296344ebe5546b907814c9, type: 3}
+  selectCropMenu: {fileID: 3285503441129693078, guid: 5c0fc7ef74afe1a45a7db946eb90d623, type: 3}
 --- !u!4 &1477033960
 Transform:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PopupMenu
   - PlaceholderMap
+  - CropController
   layers:
   - Default
   - TransparentFX

@@ -4,24 +4,27 @@ using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace EcoIsland
 {
 	public class CropsController : MonoBehaviour
 	{
-		
-
 		public Grid grid;
 		public Tilemap cropsMap;
 		public TileBase[] wheatTiles = new TileBase[3];
 		public TileBase[] cornTiles = new TileBase[3];
 		public TileBase[] carrotTiles = new TileBase[3];
 		public Dictionary<Vector3Int, Crop> crops = new Dictionary<Vector3Int, Crop>();
-		public GameObject menuObject;
+		public GameObject statusMenu;
+		public GameObject selectCropMenu;
 
 		// Time management
 		private float downClickTime;
 		private float ClickDeltaTime = 0.2F;
+		
+		// Position
+		private Vector3Int selectedTile;
 
 		// Popup Menu
 		private GameObject popupMenu;
@@ -51,8 +54,18 @@ namespace EcoIsland
 						TileBase clickedTile = this.cropsMap.GetTile(this.getMousePosition());
 						if (clickedTile.name == "Field")
 						{
-							//Debug.Log(this.cropsMap.GetTile(this.getMousePosition()).name);
-							this.plantCrop(CropTypes.Wheat);
+							Vector3 cellPos = this.getCellPosition();
+							this.selectedTile = getMousePosition();
+
+							// Setting the trigger element
+							//this.selectCropMenu.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { Debug.Log("Hello World"); });
+							//this.selectCropMenu.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate { this.plantSelectedCrop("Corn"); });
+							//this.selectCropMenu.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(delegate { this.plantSelectedCrop("Carrot"); });
+
+							PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
+							menu.setPosition(cellPos);
+							menu.setObject(this.selectCropMenu);
+							menu.openPopup();
 						} else {
 							//Debug.Log("Hej med dig.");
 							Crop data = this.getDataFromTile(this.getMousePosition());
@@ -70,11 +83,11 @@ namespace EcoIsland
 							}
 
 							// Menu
-							this.menuObject.GetComponent<Text>().text = popupText;
+							this.statusMenu.GetComponent<Text>().text = popupText;
 
 							PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
 							menu.setPosition(cellPos);
-							menu.setObject(this.menuObject);
+							menu.setObject(this.statusMenu);
 							menu.openPopup();
 						}
 					}
@@ -114,7 +127,7 @@ namespace EcoIsland
 						this.cropsMap.SetTile(crop.Value.position, this.cornTiles[stage]);
 						break;
 					case CropTypes.Carrot:
-						this.cropsMap.SetTile(crop.Value.position, this.wheatTiles[stage]);
+						this.cropsMap.SetTile(crop.Value.position, this.carrotTiles[stage]);
 						break;
 					default:
 						Debug.Log("Fuck mand");
@@ -134,10 +147,11 @@ namespace EcoIsland
 
 		}
 
-		public void plantCrop(CropTypes type)
+		public void plantCrop(CropTypes type, Vector3Int pos)
 		{
+			PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
 			DateTime plantTime = DateTime.Now;
-			Vector3Int placementPos = this.getMousePosition();
+			Vector3Int placementPos = pos;
 			this.crops.Add(placementPos, new Crop(type, plantTime, placementPos));
 
 			switch (type)
@@ -154,8 +168,25 @@ namespace EcoIsland
 				default:
 					break;
 			}
+			menu.closePopup();
 		}
 
+		public void plantSelectedCrop(string crop) {
+			Debug.Log("Planted with : " + crop);
 
+			if (crop == "Wheat") {
+				this.plantCrop(CropTypes.Wheat, this.selectedTile);
+			} else if (crop == "Corn") {
+				this.plantCrop(CropTypes.Corn, this.selectedTile);
+			} else if (crop == "Carrot") {
+				this.plantCrop(CropTypes.Carrot, this.selectedTile);
+			} else {
+				Debug.Log("You have misspelled one or more crops");
+			}
+		}
+
+		public void Testing() {
+			Debug.Log("Testing123321");
+		}
 	}
 }
