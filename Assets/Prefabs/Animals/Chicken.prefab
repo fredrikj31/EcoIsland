@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2036981978538081866}
   - component: {fileID: 2036981978538081869}
   - component: {fileID: 2036981978538081868}
+  - component: {fileID: 8395146579429711139}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -169,3 +170,19 @@ MonoBehaviour:
   - 10
   - 20
   speed: 2
+--- !u!114 &8395146579429711139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036981978538081871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e977a3286f4cc62439cf00d0a7d19435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveIntervalMinMax:
+  - 10
+  - 20
+  item: {fileID: 7494138851638260756, guid: 7138c7980ae71364ca3d87b42ab62f53, type: 3}

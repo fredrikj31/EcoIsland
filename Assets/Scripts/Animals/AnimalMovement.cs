@@ -21,7 +21,7 @@ namespace EcoIsland
 
 			this.sprite = this.GetComponent<SpriteRenderer>();
 
-			Invoke("moveAnimal", 3f);
+			Invoke("moveAnimal", Random.Range(this.moveIntervalMinMax[0], this.moveIntervalMinMax[1]));
 		}
 
 		void Update()
