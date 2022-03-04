@@ -12,6 +12,7 @@ namespace EcoIsland
 	{
 		public Grid grid;
 		public Tilemap cropsMap;
+		public TileBase emptyField;
 		public TileBase[] wheatTiles = new TileBase[3];
 		public TileBase[] cornTiles = new TileBase[3];
 		public TileBase[] carrotTiles = new TileBase[3];
@@ -65,36 +66,20 @@ namespace EcoIsland
 						{
 							Crop data = this.getDataFromTile(this.getMousePosition());
 
-							// Get cell position
-							Vector3 cellPos = this.getCellPosition();
+							// Get cell position in the world
+							Vector3 cellWorldPos = this.getCellPosition();
 							TimeSpan remainingTime = data.getRemainingTime();
 
-							// Formatting the strings
-							string popupText = $"Type: {data.cropType.ToString()}\nGrowth: {Math.Round(data.getProcents(), 0)}%";
-
+							// If crop is finished growing
 							if (data.checkTime() == 2)
 							{
-								popupText = $"Type: {data.cropType.ToString()}\nGrowth: 100%";
-							}
-							else
-							{
-								if (remainingTime.Hours > 0)
-								{
-									popupText = $"Type: {data.cropType.ToString()}\nGrowth: {Math.Round(data.getProcents(), 0)}%\n{remainingTime.Hours} hrs {remainingTime.Minutes} min {remainingTime.Seconds} sec";
-								}
-								else if (remainingTime.Minutes > 0)
-								{
-									popupText = $"Type: {data.cropType.ToString()}\nGrowth: {Math.Round(data.getProcents(), 0)}%\n{remainingTime.Minutes} min {remainingTime.Seconds} sec";
-								}
-								else
-								{
-									popupText = $"Type: {data.cropType.ToString()}\nGrowth: {Math.Round(data.getProcents(), 0)}%\n{remainingTime.Seconds} sec";
-								}
+								this.harvestCrop(this.getMousePosition());
+								return;
 							}
 
-							// Formatting and setting up the menu
-							this.statusMenu.GetComponent<Text>().text = popupText;
-							menu.setPosition(cellPos);
+							// Formatting string and setting up the menu
+							this.statusMenu.GetComponent<Text>().text = this.formatData(data);
+							menu.setPosition(cellWorldPos);
 							menu.setObject(this.statusMenu);
 							menu.openPopup();
 						}
@@ -114,11 +99,45 @@ namespace EcoIsland
 			return grid.GetCellCenterWorld(this.getMousePosition());
 		}
 
+		private string formatData(Crop data)
+		{
+			TimeSpan remainingTime = data.getRemainingTime();
+			string popupText = $"Type: {data.cropType.ToString()}\nGrowth: {Math.Round(data.getProcents(), 0)}%";
+
+			if (data.checkTime() == 2)
+			{
+				popupText = $"Type: {data.cropType.ToString()}\nGrowth: 100%";
+			}
+			else
+			{
+				if (remainingTime.Hours > 0)
+				{
+					popupText = $"Type: {data.cropType.ToString()}\nGrowth: {Math.Round(data.getProcents(), 0)}%\n{remainingTime.Hours} hrs {remainingTime.Minutes} min {remainingTime.Seconds} sec";
+				}
+				else if (remainingTime.Minutes > 0)
+				{
+					popupText = $"Type: {data.cropType.ToString()}\nGrowth: {Math.Round(data.getProcents(), 0)}%\n{remainingTime.Minutes} min {remainingTime.Seconds} sec";
+				}
+				else
+				{
+					popupText = $"Type: {data.cropType.ToString()}\nGrowth: {Math.Round(data.getProcents(), 0)}%\n{remainingTime.Seconds} sec";
+				}
+			}
+
+			return popupText;
+		}
+
 		private void updateCropsTime()
 		{
 			foreach (KeyValuePair<Vector3Int, Crop> crop in this.crops)
 			{
 				int stage = crop.Value.checkTime();
+
+				// Update crop status
+				if (GameObject.FindGameObjectWithTag("FieldStatus") != null) {
+					GameObject.FindGameObjectWithTag("FieldStatus").GetComponent<Text>().text = this.formatData(crop.Value);
+				}
+
 				switch (crop.Value.cropType)
 				{
 					case CropTypes.Wheat:
@@ -140,19 +159,18 @@ namespace EcoIsland
 		public Crop getDataFromTile(Vector3Int pos)
 		{
 			Crop data = this.crops[pos];
-
 			return data;
 		}
 
-		public void harvestCrop()
+		public void harvestCrop(Vector3Int pos)
 		{
-			Vector3Int cellPos = this.getMousePosition();
-			Crop cropData = this.getDataFromTile(cellPos);
+			this.cropsMap.SetTile(pos, this.emptyField);
 
-			if (cropData.getProcents() == 100.0)
-			{
-				Debug.Log("This crop is finished");
-			}
+			// Remove crop from list over planted crops
+			this.crops.Remove(pos);
+
+			// Add Croptype to inventory
+			Debug.Log("This crop is finished");
 		}
 
 		public void plantCrop(CropTypes type, Vector3Int pos)
