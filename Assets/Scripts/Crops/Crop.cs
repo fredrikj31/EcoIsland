@@ -28,18 +28,17 @@ namespace EcoIsland
 		// Check time
 		public int checkTime()
 		{
-
 			// Calculate time
 			DateTime now = DateTime.Now;
 			TimeSpan difference = now.Subtract(this.plantedTime);
 			double procents = (difference.TotalSeconds / this.growTime[this.cropType]) * 100;
 
 			// Stages: (0 = level 1), (1 = level 2), (2 = level 3)
-			if (procents <= 33.3)
+			if (procents <= 50.0)
 			{
 				return 0;
 			}
-			else if (procents > 33.3 && procents <= 66.6)
+			else if (procents < 100.0)
 			{
 				return 1;
 			}
