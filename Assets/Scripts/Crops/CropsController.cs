@@ -11,7 +11,7 @@ namespace EcoIsland
 	public class CropsController : MonoBehaviour
 	{
 		public Grid grid;
-		public Tilemap cropsMap;
+		public Tilemap tileMap;
 		public TileBase emptyField;
 		public TileBase[] wheatTiles = new TileBase[3];
 		public TileBase[] cornTiles = new TileBase[3];
@@ -19,6 +19,7 @@ namespace EcoIsland
 		public Dictionary<Vector3Int, Crop> crops = new Dictionary<Vector3Int, Crop>();
 		public GameObject statusMenu;
 		public GameObject selectCropMenu;
+		public GameObject noWaterMenu;
 
 		// Time management
 		private float downClickTime;
@@ -49,18 +50,24 @@ namespace EcoIsland
 			{
 				if (Time.time - downClickTime <= ClickDeltaTime)
 				{
-					if (this.cropsMap.GetTile(this.getMousePosition()) != null)
+					if (this.tileMap.GetTile(this.getMousePosition()) != null)
 					{
-						TileBase clickedTile = this.cropsMap.GetTile(this.getMousePosition());
+						TileBase clickedTile = this.tileMap.GetTile(this.getMousePosition());
 						PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
 						if (clickedTile.name == "Field")
 						{
 							Vector3 cellPos = this.getCellPosition();
 							this.selectedTile = getMousePosition();
-
-							menu.setPosition(cellPos);
-							menu.setObject(this.selectCropMenu);
-							menu.openPopup();
+							// Check for water nearby
+							if (this.checkWaterTiles(this.getMousePosition()) == true) {
+								menu.setPosition(cellPos);
+								menu.setObject(this.selectCropMenu);
+								menu.openPopup();
+							} else {
+								menu.setPosition(cellPos);
+								menu.setObject(this.noWaterMenu);
+								menu.openPopup();
+							}
 						}
 						else
 						{
@@ -86,6 +93,15 @@ namespace EcoIsland
 					}
 				}
 			}
+		}
+
+		private bool checkWaterTiles(Vector3Int tilePos) {
+			for (int i = 0; i < 8; i++)
+			{
+				
+			}
+
+			return true;
 		}
 
 		private Vector3Int getMousePosition()
@@ -141,13 +157,13 @@ namespace EcoIsland
 				switch (crop.Value.cropType)
 				{
 					case CropTypes.Wheat:
-						this.cropsMap.SetTile(crop.Value.position, this.wheatTiles[stage]);
+						this.tileMap.SetTile(crop.Value.position, this.wheatTiles[stage]);
 						break;
 					case CropTypes.Corn:
-						this.cropsMap.SetTile(crop.Value.position, this.cornTiles[stage]);
+						this.tileMap.SetTile(crop.Value.position, this.cornTiles[stage]);
 						break;
 					case CropTypes.Carrot:
-						this.cropsMap.SetTile(crop.Value.position, this.carrotTiles[stage]);
+						this.tileMap.SetTile(crop.Value.position, this.carrotTiles[stage]);
 						break;
 					default:
 						Debug.Log("A type that does not exists.");
@@ -164,7 +180,7 @@ namespace EcoIsland
 
 		public void harvestCrop(Vector3Int pos)
 		{
-			this.cropsMap.SetTile(pos, this.emptyField);
+			this.tileMap.SetTile(pos, this.emptyField);
 
 			// Remove crop from list over planted crops
 			this.crops.Remove(pos);
@@ -183,13 +199,13 @@ namespace EcoIsland
 			switch (type)
 			{
 				case CropTypes.Wheat:
-					this.cropsMap.SetTile(placementPos, this.wheatTiles[0]);
+					this.tileMap.SetTile(placementPos, this.wheatTiles[0]);
 					break;
 				case CropTypes.Corn:
-					this.cropsMap.SetTile(placementPos, this.cornTiles[0]);
+					this.tileMap.SetTile(placementPos, this.cornTiles[0]);
 					break;
 				case CropTypes.Carrot:
-					this.cropsMap.SetTile(placementPos, this.carrotTiles[0]);
+					this.tileMap.SetTile(placementPos, this.carrotTiles[0]);
 					break;
 				default:
 					break;
