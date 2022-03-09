@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class PickupDrop : MonoBehaviour, IPointerClickHandler
+public class PickupDrop : MonoBehaviour
 {
-	//Detect if a click occurs
-	public void OnPointerClick(PointerEventData pointerEventData)
+
+	void OnMouseDown()
 	{
-		//Output to console the clicked GameObject's name and the following message. You can replace this with your own actions for when clicking the GameObject.
-		Debug.Log(name + " Game Object Clicked!");
+		Destroy(this.gameObject);
+		Debug.Log("I got clicked");
 	}
 }
