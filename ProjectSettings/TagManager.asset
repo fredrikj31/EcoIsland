@@ -8,6 +8,7 @@ TagManager:
   - PlaceholderMap
   - CropController
   - FieldStatus
+  - GroundTiles
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Animals
+    uniqueID: 451917399
     locked: 0
   - name: Popup
     uniqueID: 2003854677

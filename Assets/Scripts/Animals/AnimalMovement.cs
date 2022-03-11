@@ -16,6 +16,8 @@ namespace EcoIsland
 
 		void Start()
 		{
+			this.ground = GameObject.FindGameObjectWithTag("GroundTiles").GetComponent<Tilemap>();
+
 			this.rb = this.GetComponent<Rigidbody2D>();
 			this.newPos = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 

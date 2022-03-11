@@ -5,8 +5,9 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PlaceTile : MonoBehaviour, IPointerClickHandler, IPointerDownHandler
+public class PlaceTile : MonoBehaviour, IPointerDownHandler
 {
+	public List<Tilemap> tilemaps;
 	public GameObject scrollView;
 	public TileBase placedTile;
 	public Tilemap placeMap;
@@ -47,17 +48,23 @@ public class PlaceTile : MonoBehaviour, IPointerClickHandler, IPointerDownHandle
 			} else {
 				// Place tile
 				this.isPlacing = false;
-				this.placeMap.SetTile(this.position, this.placedTile);
+				this.placeTile(this.position);
 				this.placeholderMap.ClearAllTiles();
 			}
 		}
 	}
 
-	public void OnPointerClick(PointerEventData eventData)
-	{
-		// OnClick code goes here ...
+	private void placeTile(Vector3Int pos) {
+		// TODO: Remove all tiles at the position of all tilemaps, then place the tile on the correct tilemap.
+	
+		// Removes all the tiles from all tilemaps at the position
+		foreach (Tilemap map in this.tilemaps)
+		{
+			map.SetTile(pos, null);
+		}
 
-
+		// Setting the new tile at the pos
+		this.placeMap.SetTile(pos, this.placedTile);
 	}
 
 	public void OnPointerDown(PointerEventData eventData)
