@@ -8,6 +8,7 @@ public class SaveSettings : MonoBehaviour
 	private string settingFilePath;
 
 	public Toggle musicToggler;
+	public Slider musicSlider;
 	public Toggle soundEffectsToggler;
 
 
@@ -23,10 +24,12 @@ public class SaveSettings : MonoBehaviour
 
     public void saveSettings() {
 		bool musicEnabled = this.musicToggler.isOn;
+		float musicVolumen = this.musicSlider.value;
 		bool effectsEnabled = this.soundEffectsToggler.isOn;
 
 		SaveSetting saveSetting = new SaveSetting();
 		saveSetting.musicEnabled = musicEnabled;
+		saveSetting.musicVolumen = musicVolumen;
 		saveSetting.effectsEnabled = effectsEnabled;
 
 		string jsonResult = JsonConvert.SerializeObject(saveSetting);
@@ -49,6 +52,7 @@ public class SaveSettings : MonoBehaviour
 		} else {
 			SaveSetting saveSetting = new SaveSetting();
 			saveSetting.musicEnabled = true;
+			saveSetting.musicVolumen = 1.0f;
 			saveSetting.effectsEnabled = true;
 			return saveSetting;
 		}
@@ -58,6 +62,7 @@ public class SaveSettings : MonoBehaviour
 		SaveSetting result = this.loadSettings();
 
 		this.musicToggler.isOn = result.musicEnabled;
+		this.musicSlider.value = result.musicVolumen;
 		this.soundEffectsToggler.isOn = result.effectsEnabled;
 	}
 }
