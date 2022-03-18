@@ -9,6 +9,9 @@ TagManager:
   - CropController
   - FieldStatus
   - GroundTiles
+  - Pig
+  - Chicken
+  - Animal
   layers:
   - Default
   - TransparentFX

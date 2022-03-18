@@ -20,5 +20,14 @@ class SaveEditor : Editor
 		{
 			myTarget.loadTilemaps();
 		}
+
+		if (GUILayout.Button("Save Objects"))
+		{
+			myTarget.saveObjects();
+		}
+		if (GUILayout.Button("Load Objects"))
+		{
+			myTarget.loadObjects();
+		}
 	}
 }

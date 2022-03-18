@@ -1,0 +1,63 @@
+using UnityEngine;
+using UnityEngine.UI;
+using Newtonsoft.Json;
+
+public class SaveSettings : MonoBehaviour
+{
+	private SaveSystem saveSys;
+	private string settingFilePath;
+
+	public Toggle musicToggler;
+	public Toggle soundEffectsToggler;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        this.saveSys = new SaveSystem();
+		this.settingFilePath = Application.persistentDataPath + "/settings.json";
+
+		// Sets the default values
+		this.setSettingValues();
+    }
+
+    public void saveSettings() {
+		bool musicEnabled = this.musicToggler.isOn;
+		bool effectsEnabled = this.soundEffectsToggler.isOn;
+
+		SaveSetting saveSetting = new SaveSetting();
+		saveSetting.musicEnabled = musicEnabled;
+		saveSetting.effectsEnabled = effectsEnabled;
+
+		string jsonResult = JsonConvert.SerializeObject(saveSetting);
+
+		// When finished saving all the tiles, then save to file
+		if (this.saveSys.fileExists(this.settingFilePath)) {
+			this.saveSys.overwriteFileContent(this.settingFilePath, jsonResult);
+		} else {
+			this.saveSys.createFile(this.settingFilePath);
+			this.saveSys.overwriteFileContent(this.settingFilePath, jsonResult);
+		}
+	}
+
+	public SaveSetting loadSettings() {
+		if (this.saveSys.fileExists(this.settingFilePath)) {
+			string data = this.saveSys.readFile(this.settingFilePath);
+
+			SaveSetting result = JsonConvert.DeserializeObject<SaveSetting>(data);
+			return result;
+		} else {
+			SaveSetting saveSetting = new SaveSetting();
+			saveSetting.musicEnabled = true;
+			saveSetting.effectsEnabled = true;
+			return saveSetting;
+		}
+	}
+
+	public void setSettingValues() {
+		SaveSetting result = this.loadSettings();
+
+		this.musicToggler.isOn = result.musicEnabled;
+		this.soundEffectsToggler.isOn = result.effectsEnabled;
+	}
+}
