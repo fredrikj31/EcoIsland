@@ -55,3 +55,6 @@ TagManager:
   - name: Popup
     uniqueID: 2003854677
     locked: 0
+  - name: Menu
+    uniqueID: 4184524091
+    locked: 0
