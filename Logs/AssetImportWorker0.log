@@ -1324,3 +1324,102 @@ AssetImportParameters requested are different than current active one (requested
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010818 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.64 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.388 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2394ms)
+		BeginReloadAssembly (252ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (29ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (117ms)
+		EndReloadAssembly (2052ms)
+			LoadAssemblies (143ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (379ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (1156ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (449ms)
+				ProcessInitializeOnLoadAttributes (666ms)
+				ProcessInitializeOnLoadMethodAttributes (19ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.73 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2379 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 105.2 MB.
+System memory in use after: 105.4 MB.
+
+Unloading 30 unused Assets to reduce memory usage. Loaded Objects now: 2876.
+Total: 4.242500 ms (FindLiveObjects: 0.303300 ms CreateObjectMapping: 0.143700 ms MarkObjects: 3.742000 ms  DeleteObjects: 0.052100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 3066.969360 seconds.
+  path: Assets/Sprites/barn.png
+  artifactKey: Guid(5a240872a8c497349a9d35190bc9ddb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/barn.png using Guid(5a240872a8c497349a9d35190bc9ddb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fbbfd95931b6fffe03eafcef8375ae7') in 0.065945 seconds 
+  Import took 0.070888 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.038915 seconds.
+  path: Assets/Resources/Prefabs/Animals/Chicken.prefab
+  artifactKey: Guid(7484c9de5e16b1d48bf167dc2638f574) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Animals/Chicken.prefab using Guid(7484c9de5e16b1d48bf167dc2638f574) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f072341f8b404988174383903a095c46') in 0.048583 seconds 
+  Import took 0.053277 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.160029 seconds.
+  path: Assets/Resources/Prefabs/Animals/Chicken.prefab
+  artifactKey: Guid(7484c9de5e16b1d48bf167dc2638f574) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Animals/Chicken.prefab using Guid(7484c9de5e16b1d48bf167dc2638f574) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27c1662b808e8e4b099a7f92db756609') in 0.034320 seconds 
+  Import took 0.057837 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.716688 seconds.
+  path: Assets/Sprites/barn.png
+  artifactKey: Guid(5a240872a8c497349a9d35190bc9ddb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/barn.png using Guid(5a240872a8c497349a9d35190bc9ddb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbf20ffb1f6a6d7a6da8e6826440c20c') in 0.017844 seconds 
+  Import took 0.021929 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.399219 seconds.
+  path: Assets/Sprites/barn.png
+  artifactKey: Guid(5a240872a8c497349a9d35190bc9ddb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/barn.png using Guid(5a240872a8c497349a9d35190bc9ddb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49dd1b14943d0f423e0adac156972b27') in 0.013589 seconds 
+  Import took 0.018274 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
