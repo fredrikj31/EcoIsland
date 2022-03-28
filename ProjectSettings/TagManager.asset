@@ -54,6 +54,9 @@ TagManager:
   - name: Animals
     uniqueID: 451917399
     locked: 0
+  - name: Objects
+    uniqueID: 2649979911
+    locked: 0
   - name: Popup
     uniqueID: 2003854677
     locked: 0

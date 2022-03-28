@@ -14,7 +14,6 @@ public class EffectController : MonoBehaviour
 		this.audioPlayer = this.GetComponent<AudioSource>();
 
         SaveSettings saveSettings = SaveController.GetComponent<SaveSettings>();
-
 		this.settings = saveSettings.loadSettings();
 
 		if (this.settings.effectsEnabled == true) {
@@ -23,4 +22,13 @@ public class EffectController : MonoBehaviour
 			this.audioPlayer.volume = 0f;
 		}
     }
+
+	public void updateValues(SaveSetting input) {
+		AudioSource effectController = this.GetComponent<AudioSource>();
+		if (input.effectsEnabled == true) {
+			effectController.volume = input.effectsVolumen;
+		} else {
+			effectController.volume = 0;
+		}
+	}
 }

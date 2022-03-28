@@ -49,18 +49,8 @@ public class SaveSettings : MonoBehaviour
 		}
 
 		// Sets the new values
-		AudioSource musicController = this.musicController.GetComponent<AudioSource>();
-		AudioSource soundEffectsController = this.soundEffectsController.GetComponent<AudioSource>();
-		if (musicEnabled == true) {
-			musicController.volume = musicVolumen;
-		} else {
-			musicController.volume = 0;
-		}
-		if (effectsEnabled == true) {
-			soundEffectsController.volume = effectsVolumen;
-		} else {
-			soundEffectsController.volume = 0;
-		}
+		this.musicController.GetComponent<MusicController>().updateValues(saveSetting);
+		this.soundEffectsController.GetComponent<EffectController>().updateValues(saveSetting);
 	}
 
 	public SaveSetting loadSettings() {

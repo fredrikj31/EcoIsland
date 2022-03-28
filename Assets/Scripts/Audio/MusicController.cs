@@ -23,4 +23,13 @@ public class MusicController : MonoBehaviour
 			this.audioPlayer.volume = 0f;
 		}
     }
+
+	public void updateValues(SaveSetting input) {
+		AudioSource musicController = this.GetComponent<AudioSource>();
+		if (input.musicEnabled == true) {
+			musicController.volume = input.musicVolumen;
+		} else {
+			musicController.volume = 0;
+		}
+	}
 }
