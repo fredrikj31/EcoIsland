@@ -55,6 +55,10 @@ namespace EcoIsland
 			{
 				if (this.ground.GetTile(tempPos).name == "Grass")
 				{
+					if(this.GetComponent<Collider2D>().OverlapPoint(new Vector2(tempPos.x, tempPos.y)))
+						{
+						
+						}
 					if (xValue < 0)
 					{
 						// Left
