@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioController : MonoBehaviour
+public class EffectController : MonoBehaviour
 {
-	public GameObject SaveController;
+    public GameObject SaveController;
 	private AudioSource audioPlayer;
 	private SaveSetting settings;
 
@@ -17,8 +17,8 @@ public class AudioController : MonoBehaviour
 
 		this.settings = saveSettings.loadSettings();
 
-		if (this.settings.musicEnabled == true) {
-			this.audioPlayer.volume = this.settings.musicVolumen;
+		if (this.settings.effectsEnabled == true) {
+			this.audioPlayer.volume = this.settings.effectsVolumen;
 		} else {
 			this.audioPlayer.volume = 0f;
 		}

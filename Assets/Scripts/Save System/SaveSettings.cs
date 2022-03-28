@@ -10,6 +10,10 @@ public class SaveSettings : MonoBehaviour
 	public Toggle musicToggler;
 	public Slider musicSlider;
 	public Toggle soundEffectsToggler;
+	public Slider soundEffectsSlider;
+
+	public GameObject musicController;
+	public GameObject soundEffectsController;
 
 
     // Start is called before the first frame update
@@ -26,11 +30,13 @@ public class SaveSettings : MonoBehaviour
 		bool musicEnabled = this.musicToggler.isOn;
 		float musicVolumen = this.musicSlider.value;
 		bool effectsEnabled = this.soundEffectsToggler.isOn;
+		float effectsVolumen = this.soundEffectsSlider.value;
 
 		SaveSetting saveSetting = new SaveSetting();
 		saveSetting.musicEnabled = musicEnabled;
 		saveSetting.musicVolumen = musicVolumen;
 		saveSetting.effectsEnabled = effectsEnabled;
+		saveSetting.effectsVolumen = effectsVolumen;
 
 		string jsonResult = JsonConvert.SerializeObject(saveSetting);
 
@@ -40,6 +46,20 @@ public class SaveSettings : MonoBehaviour
 		} else {
 			this.saveSys.createFile(this.settingFilePath);
 			this.saveSys.overwriteFileContent(this.settingFilePath, jsonResult);
+		}
+
+		// Sets the new values
+		AudioSource musicController = this.musicController.GetComponent<AudioSource>();
+		AudioSource soundEffectsController = this.soundEffectsController.GetComponent<AudioSource>();
+		if (musicEnabled == true) {
+			musicController.volume = musicVolumen;
+		} else {
+			musicController.volume = 0;
+		}
+		if (effectsEnabled == true) {
+			soundEffectsController.volume = effectsVolumen;
+		} else {
+			soundEffectsController.volume = 0;
 		}
 	}
 
@@ -54,6 +74,18 @@ public class SaveSettings : MonoBehaviour
 			saveSetting.musicEnabled = true;
 			saveSetting.musicVolumen = 1.0f;
 			saveSetting.effectsEnabled = true;
+			saveSetting.effectsVolumen = 1.0f;
+
+			string jsonResult = JsonConvert.SerializeObject(saveSetting);
+
+			// When finished saving all the tiles, then save to file
+			if (this.saveSys.fileExists(this.settingFilePath)) {
+				this.saveSys.overwriteFileContent(this.settingFilePath, jsonResult);
+			} else {
+				this.saveSys.createFile(this.settingFilePath);
+				this.saveSys.overwriteFileContent(this.settingFilePath, jsonResult);
+			}
+
 			return saveSetting;
 		}
 	}
@@ -64,5 +96,6 @@ public class SaveSettings : MonoBehaviour
 		this.musicToggler.isOn = result.musicEnabled;
 		this.musicSlider.value = result.musicVolumen;
 		this.soundEffectsToggler.isOn = result.effectsEnabled;
+		this.soundEffectsSlider.value = result.effectsVolumen;
 	}
 }

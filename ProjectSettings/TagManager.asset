@@ -12,6 +12,8 @@ TagManager:
   - Pig
   - Chicken
   - Animal
+  - EffectController
+  - MusicController
   layers:
   - Default
   - TransparentFX
