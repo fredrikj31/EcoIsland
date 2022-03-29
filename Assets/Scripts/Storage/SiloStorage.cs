@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Newtonsoft.Json;
 
@@ -7,6 +8,7 @@ namespace EcoIsland
 {
 	public class SiloStorage : MonoBehaviour
 	{
+		public GameObject siloMenu;
 		private SaveSystem saveSys;
 		private string cropFile;
 
@@ -21,21 +23,24 @@ namespace EcoIsland
 			{
 				// Creates the file.
 				this.saveSys.createFile(this.cropFile);
-				// Creating the starter amount of wheat.
-				CropItem crop = new CropItem();
-				crop.cropName = "Wheat";
-				crop.cropAmount = 1;
-				// Saving the crop to the file
+				// Creates a temp list with all values
 				List<CropItem> tempList = new List<CropItem>();
-				tempList.Add(crop);
+				// Creating the starter amount of wheat.
+				foreach (var cropType in Enum.GetValues(typeof(CropTypes)))
+				{
+					CropItem crop = new CropItem();
+					crop.cropName = cropType.ToString();
+					crop.cropAmount = 0;
+					tempList.Add(crop);
+				}
+				// Saving the crop to the file
 				this.saveCrops(tempList);
 			}
 		}
 
-		// Update is called once per frame
-		void Update()
-		{
-
+		public void updateUI() {
+			// Updates the menu UI
+			this.GetComponent<SiloMenu>().updateUI();
 		}
 
 		private void saveCrops(List<CropItem> input)
@@ -100,6 +105,8 @@ namespace EcoIsland
 				{
 					item.cropAmount += 1;
 					this.saveCrops(allCropItem);
+					// Updates the silo menu UI
+					this.updateUI();
 					return;
 				}
 			}
@@ -113,6 +120,8 @@ namespace EcoIsland
 			// Add the crop to the system
 			allCropItem.Add(crop);
 			this.saveCrops(allCropItem);
+			// Updates the silo menu UI
+			this.updateUI();
 			return;
 		}
 
@@ -127,10 +136,14 @@ namespace EcoIsland
 				{
 					item.cropAmount -= 1;
 					this.saveCrops(allCropItem);
+					// Updates the silo menu UI
+					this.updateUI();
 					return;
 				}
 			}
 
+			// Updates the silo menu UI
+			this.updateUI();
 			return;
 		}
 
