@@ -11,10 +11,12 @@ public class SlidingMenu : MonoBehaviour
 	private RectTransform panelTransform;
 	private bool isMoving;
 	private bool isOpen = false;
+	private EffectPlayer effectPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
+		this.effectPlayer = GameObject.FindGameObjectWithTag("EffectController").GetComponent<EffectPlayer>();
         this.panelTransform = this.GetComponent<RectTransform>();
     }
 
@@ -48,10 +50,13 @@ public class SlidingMenu : MonoBehaviour
 		this.isOpen = true;
 		this.isMoving = true;
 		//Debug.Log(this.panelTransform.anchoredPosition.);
+		// Play Effect Sound
+		this.effectPlayer.playEffect("button_press");
 	}
 	public void CloseMenu() {
 		this.isOpen = false;
 		this.isMoving = true;
 		//Debug.Log(this.panelTransform.anchoredPosition.);
+		this.effectPlayer.playEffect("button_press");
 	}
 }

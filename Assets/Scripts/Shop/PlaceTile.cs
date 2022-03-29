@@ -15,10 +15,12 @@ public class PlaceTile : MonoBehaviour, IPointerDownHandler
 	private Tilemap placeholderMap;
 	private bool isPlacing;
 	private Vector3Int position;
+	private EffectPlayer effectPlayer;
 
 	// Start is called before the first frame update
 	void Start()
 	{
+		this.effectPlayer = GameObject.FindGameObjectWithTag("EffectController").GetComponent<EffectPlayer>();
 		this.scroll = this.scrollView.GetComponent<ScrollRect>();
 		this.placeholderMap = GameObject.FindGameObjectWithTag("PlaceholderMap").GetComponent<Tilemap>();
 	}
@@ -50,6 +52,8 @@ public class PlaceTile : MonoBehaviour, IPointerDownHandler
 				this.isPlacing = false;
 				this.placeTile(this.position);
 				this.placeholderMap.ClearAllTiles();
+				// Play Effect
+				this.effectPlayer.playEffect("tile_placement");
 			}
 		}
 	}
