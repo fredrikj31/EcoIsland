@@ -32,7 +32,7 @@ public class SaveSettings : MonoBehaviour
 		bool effectsEnabled = this.soundEffectsToggler.isOn;
 		float effectsVolumen = this.soundEffectsSlider.value;
 
-		SaveSetting saveSetting = new SaveSetting();
+		Setting saveSetting = new Setting();
 		saveSetting.musicEnabled = musicEnabled;
 		saveSetting.musicVolumen = musicVolumen;
 		saveSetting.effectsEnabled = effectsEnabled;
@@ -53,14 +53,14 @@ public class SaveSettings : MonoBehaviour
 		this.soundEffectsController.GetComponent<EffectController>().updateValues(saveSetting);
 	}
 
-	public SaveSetting loadSettings() {
+	public Setting loadSettings() {
 		if (this.saveSys.fileExists(this.settingFilePath)) {
 			string data = this.saveSys.readFile(this.settingFilePath);
 
-			SaveSetting result = JsonConvert.DeserializeObject<SaveSetting>(data);
+			Setting result = JsonConvert.DeserializeObject<Setting>(data);
 			return result;
 		} else {
-			SaveSetting saveSetting = new SaveSetting();
+			Setting saveSetting = new Setting();
 			saveSetting.musicEnabled = true;
 			saveSetting.musicVolumen = 1.0f;
 			saveSetting.effectsEnabled = true;
@@ -81,7 +81,7 @@ public class SaveSettings : MonoBehaviour
 	}
 
 	public void setSettingValues() {
-		SaveSetting result = this.loadSettings();
+		Setting result = this.loadSettings();
 
 		this.musicToggler.isOn = result.musicEnabled;
 		this.musicSlider.value = result.musicVolumen;

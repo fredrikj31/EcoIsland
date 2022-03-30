@@ -27,7 +27,7 @@ public class SaveIsland : MonoBehaviour
 
 	public void saveObjects() {
 		// Loop through objects with tag
-		List<SaveObject> allObjects = new List<SaveObject>();
+		List<ObjectPrefab> allObjects = new List<ObjectPrefab>();
 
 		foreach (string tag in saveTags)
 		{
@@ -36,7 +36,7 @@ public class SaveIsland : MonoBehaviour
 			foreach (GameObject selectedObject in objects)
 			{
 				//Debug.Log(selectedObject.name.Split(' ')[0]);
-				SaveObject temp = new SaveObject();
+				ObjectPrefab temp = new ObjectPrefab();
 				temp.name = selectedObject.name.Split(' ')[0];
 				temp.tag = selectedObject.tag;
 				temp.xPos = selectedObject.transform.position.x;
@@ -65,7 +65,7 @@ public class SaveIsland : MonoBehaviour
 	public void loadObjects() {
 		string data = this.saveSys.readFile(this.objectsFilePath);
 
-		List<SaveObject> result = JsonConvert.DeserializeObject<List<SaveObject>>(data);
+		List<ObjectPrefab> result = JsonConvert.DeserializeObject<List<ObjectPrefab>>(data);
 
 		Dictionary<string, GameObject> gameObjects = new Dictionary<string, GameObject>();
 
@@ -85,7 +85,7 @@ public class SaveIsland : MonoBehaviour
 			}
 		}
 
-		foreach (SaveObject item in result)
+		foreach (ObjectPrefab item in result)
 		{
 			Instantiate(gameObjects[item.name], new Vector3(item.xPos, item.yPos, item.zPos), new Quaternion(item.xRotation, item.yRotation, item.zRotation, item.wRotation));
 		}
@@ -93,7 +93,7 @@ public class SaveIsland : MonoBehaviour
 	}
 
 	public void saveTilemaps() {
-		List<SaveTile> result = new List<SaveTile>();
+		List<Tile> result = new List<Tile>();
 
 		foreach (Tilemap map in this.maps)
 		{
@@ -112,7 +112,7 @@ public class SaveIsland : MonoBehaviour
 				{
 					TileBase tile = map.GetTile(localPlace);
 
-					SaveTile temp = new SaveTile();
+					Tile temp = new Tile();
 					temp.mapName = map.name;
 					temp.tileType = tile.name;
 					temp.xPos = localPlace.x;
@@ -140,7 +140,7 @@ public class SaveIsland : MonoBehaviour
 	public void loadTilemaps() {
 		string data = this.saveSys.readFile(this.tilemapFilePath);
 
-		List<SaveTile> result = JsonConvert.DeserializeObject<List<SaveTile>>(data);
+		List<Tile> result = JsonConvert.DeserializeObject<List<Tile>>(data);
 
 		Dictionary<string, TileBase> tiles = new Dictionary<string, TileBase>();
 
@@ -170,7 +170,7 @@ public class SaveIsland : MonoBehaviour
 			}
 
 			// Setting all the tiles back onto the map
-			foreach (SaveTile tile in result)
+			foreach (Tile tile in result)
 			{
 				if (tile.mapName == map.name) {
 					map.SetTile(new Vector3Int(tile.xPos, tile.yPos, tile.zPos), tiles[tile.tileType]);

@@ -6,7 +6,7 @@ public class EffectController : MonoBehaviour
 {
     public GameObject SaveController;
 	private AudioSource audioPlayer;
-	private SaveSetting settings;
+	private Setting settings;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class EffectController : MonoBehaviour
 		}
     }
 
-	public void updateValues(SaveSetting input) {
+	public void updateValues(Setting input) {
 		AudioSource effectController = this.GetComponent<AudioSource>();
 		if (input.effectsEnabled == true) {
 			effectController.volume = input.effectsVolumen;

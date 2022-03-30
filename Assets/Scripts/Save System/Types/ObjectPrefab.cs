@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [Serializable]
-public class SaveObject
+public class ObjectPrefab
 {
     public string name;
     public string tag;

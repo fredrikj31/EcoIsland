@@ -6,7 +6,7 @@ public class MusicController : MonoBehaviour
 {
 	public GameObject SaveController;
 	private AudioSource audioPlayer;
-	private SaveSetting settings;
+	private Setting settings;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class MusicController : MonoBehaviour
 		}
     }
 
-	public void updateValues(SaveSetting input) {
+	public void updateValues(Setting input) {
 		AudioSource musicController = this.GetComponent<AudioSource>();
 		if (input.musicEnabled == true) {
 			musicController.volume = input.musicVolumen;

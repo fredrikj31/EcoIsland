@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public class SaveSetting
+public class Setting
 {
     public bool musicEnabled;
 	public float musicVolumen;

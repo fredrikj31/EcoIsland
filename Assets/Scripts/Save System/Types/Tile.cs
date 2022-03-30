@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [Serializable]
-public class SaveTile
+public class Tile
 {
 	public string mapName;
     public string tileType;
