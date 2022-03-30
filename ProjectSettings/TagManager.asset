@@ -9,11 +9,11 @@ TagManager:
   - CropController
   - FieldStatus
   - GroundTiles
-  - Pig
-  - Chicken
   - Animal
   - EffectController
   - MusicController
+  - Decoration
+  - Production
   layers:
   - Default
   - TransparentFX

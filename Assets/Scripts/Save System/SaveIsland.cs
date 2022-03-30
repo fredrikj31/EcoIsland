@@ -9,6 +9,7 @@ public class SaveIsland : MonoBehaviour
 	public Tilemap[] maps;
 	public string ignoreMap;
 	public TileBase[] tiles;
+	public GameObject[] prefabObjects;
 	public string[] saveTags;
 	private SaveSystem saveSys;
 	private	string tilemapFilePath;
