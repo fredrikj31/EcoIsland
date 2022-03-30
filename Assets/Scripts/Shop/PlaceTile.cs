@@ -11,6 +11,9 @@ public class PlaceTile : MonoBehaviour, IPointerDownHandler
 	public GameObject scrollView;
 	public TileBase placedTile;
 	public Tilemap placeMap;
+	public GameObject saveManager;
+	public int price;
+	private SaveMoney moneyManager;
 	private ScrollRect scroll;
 	private Tilemap placeholderMap;
 	private bool isPlacing;
@@ -20,6 +23,7 @@ public class PlaceTile : MonoBehaviour, IPointerDownHandler
 	// Start is called before the first frame update
 	void Start()
 	{
+		this.moneyManager = this.saveManager.GetComponent<SaveMoney>();
 		this.effectPlayer = GameObject.FindGameObjectWithTag("EffectController").GetComponent<EffectPlayer>();
 		this.scroll = this.scrollView.GetComponent<ScrollRect>();
 		this.placeholderMap = GameObject.FindGameObjectWithTag("PlaceholderMap").GetComponent<Tilemap>();
@@ -48,12 +52,23 @@ public class PlaceTile : MonoBehaviour, IPointerDownHandler
 					this.placeholderMap.SetTile(currentCell, this.placedTile);
 				}
 			} else {
-				// Place tile
-				this.isPlacing = false;
-				this.placeTile(this.position);
-				this.placeholderMap.ClearAllTiles();
-				// Play Effect
-				this.effectPlayer.playEffect("tile_placement");
+				int moneyAmount = this.moneyManager.getMoney();
+				if ((moneyAmount - this.price) >= 0) {
+					// Place tile
+					this.isPlacing = false;
+					this.placeTile(this.position);
+					this.placeholderMap.ClearAllTiles();
+					// Play Effect
+					this.effectPlayer.playEffect("tile_placement");
+					// Remove Money
+					this.moneyManager.removeMoney(this.price);
+					return;
+				} else {
+					this.isPlacing = false;
+					this.placeholderMap.ClearAllTiles();
+					Debug.Log("No money to that.");
+					return;
+				}
 			}
 		}
 	}

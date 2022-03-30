@@ -42595,6 +42595,7 @@ GameObject:
   - component: {fileID: 348481139}
   - component: {fileID: 348481138}
   - component: {fileID: 348481140}
+  - component: {fileID: 348481141}
   m_Layer: 0
   m_Name: SaveManager
   m_TagString: Untagged
@@ -42673,6 +42674,19 @@ MonoBehaviour:
   soundEffectsSlider: {fileID: 526691751}
   musicController: {fileID: 1549168951}
   soundEffectsController: {fileID: 461913576}
+--- !u!114 &348481141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348481137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 099b1e466e9bf8740989ae12b86aa405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 633264734}
 --- !u!1 &353276964
 GameObject:
   m_ObjectHideFlags: 0
@@ -43053,6 +43067,8 @@ MonoBehaviour:
   scrollView: {fileID: 343296481}
   placedTile: {fileID: 11400000, guid: 0b38f5fb6a37813499722ac888796933, type: 2}
   placeMap: {fileID: 2092433098}
+  saveManager: {fileID: 348481137}
+  price: 100
 --- !u!222 &427906297
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -44425,7 +44441,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 180, y: 0}
+  m_AnchoredPosition: {x: 180, y: -2.5}
   m_SizeDelta: {x: 210, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &633264734
@@ -45256,6 +45272,8 @@ MonoBehaviour:
   scrollView: {fileID: 343296481}
   placedTile: {fileID: 11400000, guid: 230f82fb7f48837489d436cb3f2d57ba, type: 2}
   placeMap: {fileID: 103471852}
+  saveManager: {fileID: 348481137}
+  price: 10
 --- !u!1 &810652809
 GameObject:
   m_ObjectHideFlags: 0
