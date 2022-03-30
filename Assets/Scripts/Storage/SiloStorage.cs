@@ -134,6 +134,10 @@ namespace EcoIsland
 			{
 				if (item.cropName == type.ToString())
 				{
+					if (item.cropAmount == 0) {
+						return;
+					}
+
 					item.cropAmount -= 1;
 					this.saveCrops(allCropItem);
 					// Updates the silo menu UI
@@ -145,6 +149,26 @@ namespace EcoIsland
 			// Updates the silo menu UI
 			this.updateUI();
 			return;
+		}
+
+		public bool hasAmount(CropTypes type, int amount) {
+			// Get all CropItem in silo
+			List<CropItem> allCropItem = this.getCropItems();
+
+			// Remove the already existing item from the silo
+			foreach (CropItem item in allCropItem)
+			{
+				if (item.cropName == type.ToString())
+				{
+					if (item.cropAmount >= amount) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			}
+
+			return false;
 		}
 
 	}

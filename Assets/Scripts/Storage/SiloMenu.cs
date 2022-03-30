@@ -24,6 +24,10 @@ namespace EcoIsland
 			this.siloMenu.SetActive(true);
 		}
 
+		public void closeMenu() {
+			this.siloMenu.SetActive(false);
+		}
+
 		public void updateUI()
 		{
 			List<CropItem> result = this.siloStorage.getCropItems();
