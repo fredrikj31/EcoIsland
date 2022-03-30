@@ -42634,6 +42634,9 @@ MonoBehaviour:
   prefabObjects:
   - {fileID: 2036981978538081871, guid: 7484c9de5e16b1d48bf167dc2638f574, type: 3}
   - {fileID: 3661196808090924535, guid: ee87107e741d4c24cb0cae6f19cc2396, type: 3}
+  - {fileID: 5687357802116365885, guid: 0ccea9182d3fdf041bf42ccbc52677c3, type: 3}
+  - {fileID: 8876348877852187087, guid: 615a7c4daf9a92947b0c23e1248dddf2, type: 3}
+  - {fileID: 8123362284817335814, guid: 2d57d0885b9c1de428a6cbda24055401, type: 3}
   saveTags:
   - Animal
   - Decoration

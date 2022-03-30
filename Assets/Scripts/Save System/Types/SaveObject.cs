@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 [Serializable]
 public class SaveObject
 {
+    public string name;
     public string tag;
 	public float xPos;
 	public float yPos;

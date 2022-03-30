@@ -35,8 +35,9 @@ public class SaveIsland : MonoBehaviour
 			
 			foreach (GameObject selectedObject in objects)
 			{
-				Debug.Log(selectedObject.transform.position.x);
+				//Debug.Log(selectedObject.name.Split(' ')[0]);
 				SaveObject temp = new SaveObject();
+				temp.name = selectedObject.name.Split(' ')[0];
 				temp.tag = selectedObject.tag;
 				temp.xPos = selectedObject.transform.position.x;
 				temp.yPos = selectedObject.transform.position.y;
@@ -66,34 +67,27 @@ public class SaveIsland : MonoBehaviour
 
 		List<SaveObject> result = JsonConvert.DeserializeObject<List<SaveObject>>(data);
 
-		Object[] resourceObjects = Resources.LoadAll("Prefabs");
+		Dictionary<string, GameObject> gameObjects = new Dictionary<string, GameObject>();
 
-		Dictionary<string, GameObject> objects = new Dictionary<string, GameObject>();
-
-		foreach (Object item in resourceObjects)
+		foreach (GameObject item in this.prefabObjects)
 		{
-			objects.Add(item.name, (GameObject)item);
+			gameObjects.Add(item.name, (GameObject)item);
 		}
 
 		// Clean up first!
-		foreach (string tag in saveTags)
+		foreach (string tag in this.saveTags)
 		{
 			GameObject[] removeObjects = GameObject.FindGameObjectsWithTag(tag);
-			
+
 			foreach (GameObject gameObject in removeObjects)
 			{
 				Destroy(gameObject);
 			}
 		}
 
-		foreach (GameObject gameObject in resourceObjects)
-		{	
-			foreach (SaveObject item in result)
-			{
-				if (gameObject.tag == item.tag) {
-					Instantiate(gameObject, new Vector3(item.xPos, item.yPos, item.zPos), new Quaternion(item.xRotation, item.yRotation, item.zRotation, item.wRotation));
-				}
-			}
+		foreach (SaveObject item in result)
+		{
+			Instantiate(gameObjects[item.name], new Vector3(item.xPos, item.yPos, item.zPos), new Quaternion(item.xRotation, item.yRotation, item.zRotation, item.wRotation));
 		}
 
 	}
