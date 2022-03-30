@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(SaveController))]
+[CustomEditor(typeof(SaveIsland))]
 class SaveEditor : Editor
 {
 	public override void OnInspectorGUI()
 	{
-		SaveController myTarget = (SaveController)target;
+		SaveIsland myTarget = (SaveIsland)target;
 		DrawDefaultInspector();
 
 		if (GUILayout.Button("Save World"))

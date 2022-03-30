@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Newtonsoft.Json;
 
-public class SaveController : MonoBehaviour
+public class SaveIsland : MonoBehaviour
 {
 	public Tilemap[] maps;
+	public string ignoreMap;
+	public TileBase[] tiles;
 	public string[] saveTags;
 	private SaveSystem saveSys;
 	private	string tilemapFilePath;
@@ -100,6 +102,10 @@ public class SaveController : MonoBehaviour
 
 		foreach (Tilemap map in this.maps)
 		{
+			if (map.name == this.ignoreMap) {
+				continue;
+			}
+
 			BoundsInt bounds = map.cellBounds;
         	TileBase[] allTiles = map.GetTilesBlock(bounds);
 
@@ -141,11 +147,9 @@ public class SaveController : MonoBehaviour
 
 		List<SaveTile> result = JsonConvert.DeserializeObject<List<SaveTile>>(data);
 
-		Object[] resourceTiles = Resources.LoadAll("Tiles");
-
 		Dictionary<string, TileBase> tiles = new Dictionary<string, TileBase>();
 
-		foreach (Object item in resourceTiles)
+		foreach (TileBase item in this.tiles)
 		{
 			tiles.Add(item.name, (TileBase)item);
 		}
@@ -153,6 +157,11 @@ public class SaveController : MonoBehaviour
 		// Clearing the maps
 		foreach (Tilemap map in this.maps)
 		{
+			// Ignore ground map
+			if (map.name == this.ignoreMap) {
+				continue;
+			}
+
 			// Clearing all the tiles
 			map.ClearAllTiles();
 			//Debug.Log("Clearing map : " + map.name);
@@ -160,6 +169,11 @@ public class SaveController : MonoBehaviour
 
 		foreach (Tilemap map in this.maps)
 		{
+			// Ignore ground map
+			if (map.name == this.ignoreMap) {
+				continue;
+			}
+
 			// Setting all the tiles back onto the map
 			foreach (SaveTile tile in result)
 			{
