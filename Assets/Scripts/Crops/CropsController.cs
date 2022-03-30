@@ -13,6 +13,8 @@ namespace EcoIsland
 		public Grid grid;
 		public Tilemap tileMap;
 		public TileBase emptyField;
+		public Tilemap waterMap;
+		public TileBase waterTile;
 		public TileBase[] wheatTiles = new TileBase[3];
 		public TileBase[] cornTiles = new TileBase[3];
 		public TileBase[] carrotTiles = new TileBase[3];
@@ -96,12 +98,34 @@ namespace EcoIsland
 		}
 
 		private bool checkWaterTiles(Vector3Int tilePos) {
-			for (int i = 0; i < 8; i++)
-			{
-				
+			Vector3Int[] rightSide = {new Vector3Int(tilePos.x + 1, tilePos.y + 1, 0), new Vector3Int(tilePos.x + 1, tilePos.y, 0), new Vector3Int(tilePos.x + 1, tilePos.y - 1, 0)};  
+			Vector3Int[] leftSide = {new Vector3Int(tilePos.x - 1, tilePos.y + 1, 0), new Vector3Int(tilePos.x - 1, tilePos.y, 0), new Vector3Int(tilePos.x - 1, tilePos.y - 1, 0)};  
+			Vector3Int upperTile = new Vector3Int(tilePos.x, tilePos.y + 1, 0);
+			Vector3Int lowerTile = new Vector3Int(tilePos.x, tilePos.y - 1, 0);
+
+			// Checking upper and lower tile
+			if (this.waterMap.GetTile(upperTile) == this.waterTile) {
+				return true;
+			}
+			if (this.waterMap.GetTile(lowerTile) == this.waterTile) {
+				return true;
 			}
 
-			return true;
+			// Checking side tiles
+			foreach (Vector3Int pos in rightSide)
+			{
+				if (this.waterMap.GetTile(pos) == this.waterTile) {
+					return true;
+				}
+			}
+			foreach (Vector3Int pos in leftSide)
+			{
+				if (this.waterMap.GetTile(pos) == this.waterTile) {
+					return true;
+				}
+			}
+
+			return false;
 		}
 
 		private Vector3Int getMousePosition()

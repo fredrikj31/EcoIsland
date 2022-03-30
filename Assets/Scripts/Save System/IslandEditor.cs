@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(SaveIsland))]
-class SaveEditor : Editor
+class IslandEditor : Editor
 {
 	public override void OnInspectorGUI()
 	{

@@ -47767,6 +47767,8 @@ MonoBehaviour:
   grid: {fileID: 944635857}
   tileMap: {fileID: 103471852}
   emptyField: {fileID: 11400000, guid: 230f82fb7f48837489d436cb3f2d57ba, type: 2}
+  waterMap: {fileID: 2092433098}
+  waterTile: {fileID: 11400000, guid: 0b38f5fb6a37813499722ac888796933, type: 2}
   wheatTiles:
   - {fileID: 11400000, guid: df63bf63c7497d34bb0e8ef65a7973f0, type: 2}
   - {fileID: 11400000, guid: 6fad3d48fa610194a9ae38ea770a6cf5, type: 2}

@@ -69,7 +69,7 @@ public class SaveMoney : MonoBehaviour
 
 		if ((moneyAmount - amount) >= 0) {
 			string jsonData = this.saveSys.readFile(this.moneyPath);
-			Money money = JsonConvert.DeserializeObject<Money>(this.moneyPath);
+			Money money = JsonConvert.DeserializeObject<Money>(jsonData);
 
 			money.amount -= amount;
 
