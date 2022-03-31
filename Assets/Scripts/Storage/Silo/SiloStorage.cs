@@ -8,13 +8,14 @@ namespace EcoIsland
 {
 	public class SiloStorage : MonoBehaviour
 	{
-		public GameObject siloMenu;
+		private GameObject siloMenu;
 		private SaveSystem saveSys;
 		private string cropFile;
 
 		// Start is called before the first frame update
 		void Start()
 		{
+			this.siloMenu = GameObject.FindGameObjectWithTag("SiloMenu").transform.GetChild(0).gameObject;
 			this.saveSys = new SaveSystem();
 			this.cropFile = Application.persistentDataPath + "/cropitem.json";
 
