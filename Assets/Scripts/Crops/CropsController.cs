@@ -20,6 +20,8 @@ namespace EcoIsland
 		public TileBase[] carrotTiles = new TileBase[3];
 		public Dictionary<Vector3Int, Crop> crops = new Dictionary<Vector3Int, Crop>();
 		public GameObject statusMenu;
+		public GameObject silo;
+		private SiloStorage storage;
 		public GameObject selectCropMenu;
 		public GameObject noWaterMenu;
 
@@ -37,6 +39,7 @@ namespace EcoIsland
 		void Start()
 		{
 			this.popupMenu = GameObject.FindGameObjectWithTag("PopupMenu");
+			this.storage = this.silo.GetComponent<SiloStorage>();
 
 			InvokeRepeating("updateCropsTime", 0f, 1f);
 		}
@@ -82,7 +85,7 @@ namespace EcoIsland
 							// If crop is finished growing
 							if (data.checkTime() == 2)
 							{
-								this.harvestCrop(this.getMousePosition());
+								this.harvestCrop(this.getMousePosition(), data);
 								return;
 							}
 
@@ -202,7 +205,7 @@ namespace EcoIsland
 			return data;
 		}
 
-		public void harvestCrop(Vector3Int pos)
+		public void harvestCrop(Vector3Int pos, Crop crop)
 		{
 			this.tileMap.SetTile(pos, this.emptyField);
 
@@ -211,6 +214,9 @@ namespace EcoIsland
 
 			// Add Croptype to inventory
 			Debug.Log("This crop is finished");
+
+			// Add the crop to the silo
+			this.storage.addCrop(crop.cropType);
 		}
 
 		public void plantCrop(CropTypes type, Vector3Int pos)
