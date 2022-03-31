@@ -69,7 +69,8 @@ public class PlaceTile : MonoBehaviour, IPointerDownHandler
 				} else {
 					this.isPlacing = false;
 					this.placeholderMap.ClearAllTiles();
-
+					// Play Effect
+					this.effectPlayer.playEffect("tile_placement");
 					// Setting the menu.
 					StartCoroutine(this.displayDialog(this.position));
 					//Debug.Log("No money to that.");
