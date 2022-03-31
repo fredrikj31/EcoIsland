@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace EcoIsland
 {
-	public class BarnEditor : MonoBehaviour
+	[CustomEditor(typeof(BarnStorage))]
+	class BarnEditor : Editor
 	{
-		// Start is called before the first frame update
-		void Start()
+		public override void OnInspectorGUI()
 		{
+			BarnStorage myTarget = (BarnStorage)target;
+			DrawDefaultInspector();
 
-		}
-
-		// Update is called once per frame
-		void Update()
-		{
-
+			if (GUILayout.Button("Save Item to Barn"))
+			{
+				myTarget.addItem(ItemTypes.Bread);
+			}
+			if (GUILayout.Button("Remove Item from Barn"))
+			{
+				myTarget.removeItem(ItemTypes.Bread);
+			}
 		}
 	}
 }

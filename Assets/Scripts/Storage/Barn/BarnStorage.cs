@@ -42,7 +42,7 @@ namespace EcoIsland
 		public void updateUI()
 		{
 			// Updates the menu UI
-			this.GetComponent<SiloMenu>().updateUI();
+			this.GetComponent<BarnMenu>().updateUI();
 		}
 
 		private void saveItems(List<Item> input)
