@@ -7,13 +7,14 @@ namespace EcoIsland
 {
 	public class SiloMenu : MonoBehaviour
 	{
-		public GameObject siloMenu;
 		public GameObject siloItems;
+		private GameObject siloMenu;
 		private SiloStorage siloStorage;
 
 		// Start is called before the first frame update
 		void Start()
 		{
+			this.siloMenu = GameObject.FindGameObjectWithTag("SiloMenu").transform.GetChild(0).gameObject;
 			this.siloStorage = this.GetComponent<SiloStorage>();
 
 			this.updateUI();
