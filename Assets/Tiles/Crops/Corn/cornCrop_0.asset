@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Corn_0
+  m_Name: cornCrop_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -7944502702452990849, guid: 6c9f34ea846e6264a94ace37dae003b7, type: 3}
+  m_Sprite: {fileID: 8764557954914085506, guid: 0920f448295629e4daca3638630a0f9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

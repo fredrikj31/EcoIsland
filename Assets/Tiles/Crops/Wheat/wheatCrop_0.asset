@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Wheat_1
+  m_Name: wheatCrop_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -8584868804314651190, guid: 343ee776fdc8e3148847b989cd69a396, type: 3}
+  m_Sprite: {fileID: 5734388340793483053, guid: be89dcacd1678964daf8ca255c07a623, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
