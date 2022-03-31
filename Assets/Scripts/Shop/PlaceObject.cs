@@ -60,6 +60,8 @@ public class PlaceObject : MonoBehaviour, IPointerDownHandler
 					this.isPlacing = false;
 					// Play Effect
 					this.effectPlayer.playEffect("tile_placement");
+					// Removing the object
+					Destroy(this.spawnedObject);
 					// Setting the menu.
 					StartCoroutine(this.displayDialog(this.position));
 					//Debug.Log("No money to that.");
@@ -81,7 +83,6 @@ public class PlaceObject : MonoBehaviour, IPointerDownHandler
 
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		print("I got clicked");
 		this.spawnedObject = Instantiate(this.placedObject);
 		this.scroll.vertical = false;
 		this.isPlacing = true;
