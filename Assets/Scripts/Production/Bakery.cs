@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Bakery : MonoBehaviour
 {
-	public GameObject bakeryMenu;
 	public int bakeryStatus;
+	private GameObject bakeryMenu;
 	private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+		this.bakeryMenu = GameObject.FindGameObjectWithTag("BakeryMenu").transform.GetChild(0).gameObject;
         this.animator = this.GetComponent<Animator>();
     }
 
