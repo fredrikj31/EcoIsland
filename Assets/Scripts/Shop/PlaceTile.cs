@@ -23,12 +23,14 @@ namespace EcoIsland
 		private Vector3Int position;
 		private EffectPlayer effectPlayer;
 		private GameObject popupMenu;
+		private SaveIsland islandManager;
 
 		// Start is called before the first frame update
 		void Start()
 		{
 			this.popupMenu = GameObject.FindGameObjectWithTag("PopupMenu");
 			this.moneyManager = this.saveManager.GetComponent<SaveMoney>();
+			this.islandManager = GameObject.FindGameObjectWithTag("SaveManager").GetComponent<SaveIsland>();
 			this.effectPlayer = GameObject.FindGameObjectWithTag("EffectController").GetComponent<EffectPlayer>();
 			this.scroll = this.scrollView.GetComponent<ScrollRect>();
 			this.placeholderMap = GameObject.FindGameObjectWithTag("PlaceholderMap").GetComponent<Tilemap>();
@@ -111,6 +113,9 @@ namespace EcoIsland
 
 			// Setting the new tile at the pos
 			this.placeMap.SetTile(pos, this.placedTile);
+
+			// Save the map to the file
+			this.islandManager.saveTilemaps();
 		}
 
 		public void OnPointerDown(PointerEventData eventData)
