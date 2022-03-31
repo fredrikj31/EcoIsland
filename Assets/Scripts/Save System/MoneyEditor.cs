@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(SaveMoney))]
-class MoneyEditor : Editor
+namespace EcoIsland
 {
-	public override void OnInspectorGUI()
+	[CustomEditor(typeof(SaveMoney))]
+	class MoneyEditor : Editor
 	{
-		SaveMoney myTarget = (SaveMoney)target;
-		DrawDefaultInspector();
-
-		if (GUILayout.Button("Give Money"))
+		public override void OnInspectorGUI()
 		{
-			myTarget.addMoney(50);
-		}
+			SaveMoney myTarget = (SaveMoney)target;
+			DrawDefaultInspector();
 
-		if (GUILayout.Button("Take Money"))
-		{
-			myTarget.removeMoney(50);
+			if (GUILayout.Button("Give Money"))
+			{
+				myTarget.addMoney(50);
+			}
+
+			if (GUILayout.Button("Take Money"))
+			{
+				myTarget.removeMoney(50);
+			}
 		}
 	}
 }

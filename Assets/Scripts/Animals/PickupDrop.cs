@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupDrop : MonoBehaviour
+namespace EcoIsland
 {
-
-	void OnMouseDown()
+	public class PickupDrop : MonoBehaviour
 	{
-		Destroy(this.gameObject);
-		Debug.Log("I got clicked");
+
+		void OnMouseDown()
+		{
+			Destroy(this.gameObject);
+			Debug.Log("I got clicked");
+		}
 	}
 }

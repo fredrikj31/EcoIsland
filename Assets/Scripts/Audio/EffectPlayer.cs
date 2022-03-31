@@ -2,26 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectPlayer : MonoBehaviour
+namespace EcoIsland
 {
-	public List<AudioClip> audioClips;
-
-    private Dictionary<string, AudioClip> effects;
-	private AudioSource player;
-
-	void Start() 
+	public class EffectPlayer : MonoBehaviour
 	{
-		this.effects = new Dictionary<string, AudioClip>();
-		this.player = this.GetComponent<AudioSource>();
+		public List<AudioClip> audioClips;
 
-		foreach (AudioClip myClip in audioClips)
+		private Dictionary<string, AudioClip> effects;
+		private AudioSource player;
+
+		void Start()
 		{
-			this.effects.Add(myClip.name, myClip);
-		}
-	}
+			this.effects = new Dictionary<string, AudioClip>();
+			this.player = this.GetComponent<AudioSource>();
 
-	public void playEffect(string effectName) {
-		this.player.clip = effects[effectName];
-		this.player.Play();
+			foreach (AudioClip myClip in audioClips)
+			{
+				this.effects.Add(myClip.name, myClip);
+			}
+		}
+
+		public void playEffect(string effectName)
+		{
+			this.player.clip = effects[effectName];
+			this.player.Play();
+		}
 	}
 }

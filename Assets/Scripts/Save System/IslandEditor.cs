@@ -3,31 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(SaveIsland))]
-class IslandEditor : Editor
+namespace EcoIsland
 {
-	public override void OnInspectorGUI()
+	[CustomEditor(typeof(SaveIsland))]
+	class IslandEditor : Editor
 	{
-		SaveIsland myTarget = (SaveIsland)target;
-		DrawDefaultInspector();
+		public override void OnInspectorGUI()
+		{
+			SaveIsland myTarget = (SaveIsland)target;
+			DrawDefaultInspector();
 
-		if (GUILayout.Button("Save World"))
-		{
-			myTarget.saveTilemaps();
-		}
+			if (GUILayout.Button("Save World"))
+			{
+				myTarget.saveTilemaps();
+			}
 
-		if (GUILayout.Button("Load World"))
-		{
-			myTarget.loadTilemaps();
-		}
+			if (GUILayout.Button("Load World"))
+			{
+				myTarget.loadTilemaps();
+			}
 
-		if (GUILayout.Button("Save Objects"))
-		{
-			myTarget.saveObjects();
-		}
-		if (GUILayout.Button("Load Objects"))
-		{
-			myTarget.loadObjects();
+			if (GUILayout.Button("Save Objects"))
+			{
+				myTarget.saveObjects();
+			}
+			if (GUILayout.Button("Load Objects"))
+			{
+				myTarget.loadObjects();
+			}
 		}
 	}
 }
