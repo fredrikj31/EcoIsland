@@ -16,6 +16,7 @@ TagManager:
   - Production
   - BakeryMenu
   - SiloMenu
+  - BarnMenu
   layers:
   - Default
   - TransparentFX
