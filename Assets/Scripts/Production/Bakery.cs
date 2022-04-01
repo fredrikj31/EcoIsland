@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace EcoIsland
 {
 	public class Bakery : MonoBehaviour
 	{
 		public int bakeryStatus;
-		public GameObject barn;
 		private bool isFinished;
+		private GameObject barn;
 		private BarnStorage storage;
 		private GameObject bakeryMenu;
 		private Animator animator;
@@ -18,9 +19,13 @@ namespace EcoIsland
 		// Start is called before the first frame update
 		void Start()
 		{
+			this.barn = GameObject.FindGameObjectWithTag("Barn");
 			this.storage = this.barn.GetComponent<BarnStorage>();
 			this.bakeryMenu = GameObject.FindGameObjectWithTag("BakeryMenu").transform.GetChild(0).gameObject;
 			this.animator = this.GetComponent<Animator>();
+
+			// Resets its state
+			this.bread = null;
 
 			// Updates time and so on...
 			InvokeRepeating("updateBreadTime", 0f, 1f);
@@ -41,7 +46,13 @@ namespace EcoIsland
 		}
 
 		private void updateBreadTime() {
-			int stage = bread.checkTime();
+			if (this.bread == null) {
+				return;
+			}
+
+			int stage = this.bread.checkTime();
+			Debug.Log(this.bakeryMenu.name);
+			this.bakeryMenu.transform.GetChild(3).transform.GetChild(0).GetComponent<Text>().text = this.formatData(this.bread);
 			if (stage == 2) {
 				this.isFinished = true;
 				this.bread = null;
@@ -51,6 +62,7 @@ namespace EcoIsland
 				this.animator.SetInteger("bakeryStatus", 0);
 			}
 		}
+
 		private string formatData(Bread data)
 		{
 			TimeSpan remainingTime = data.getRemainingTime();
@@ -86,6 +98,7 @@ namespace EcoIsland
 
 		public void bakeBread() {
 			if (this.bread == null) {
+				print("Hej");
 				Bread bread = new Bread(DateTime.Now);
 				this.bread = bread;
 			}
