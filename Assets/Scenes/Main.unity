@@ -126686,7 +126686,7 @@ MonoBehaviour:
   placedObject: {fileID: 8644174183744898558, guid: 73180878459abc346b2050964c3f4548, type: 3}
   saveManager: {fileID: 348481137}
   price: 0
-  allowedObjects: 0
+  allowedObjects: 1
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
   noMoreObjects: {fileID: 7519672384217075532, guid: 7f8195c621f424b4a879724608edba6b, type: 3}
 --- !u!222 &1056678644
@@ -130500,7 +130500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollView: {fileID: 2026110292}
-  placedObject: {fileID: 962826667086901562, guid: a7ff05bf034d5ba468f48546bd4b53c2, type: 3}
+  placedObject: {fileID: 6520106395646599146, guid: 52f387745ca66db468a6e7512114573d, type: 3}
   saveManager: {fileID: 348481137}
   price: 0
   allowedObjects: 1
@@ -130775,10 +130775,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollView: {fileID: 2026110292}
-  placedObject: {fileID: 6520106395646599146, guid: 52f387745ca66db468a6e7512114573d, type: 3}
+  placedObject: {fileID: 962826667086901562, guid: a7ff05bf034d5ba468f48546bd4b53c2, type: 3}
   saveManager: {fileID: 348481137}
   price: 0
-  allowedObjects: 1
+  allowedObjects: 5
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
   noMoreObjects: {fileID: 7519672384217075532, guid: 7f8195c621f424b4a879724608edba6b, type: 3}
 --- !u!222 &1621078811

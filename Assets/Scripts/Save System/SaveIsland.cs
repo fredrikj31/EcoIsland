@@ -98,6 +98,7 @@ namespace EcoIsland
 
 				foreach (GameObject gameObject in removeObjects)
 				{
+					print("Destorying object");
 					Destroy(gameObject);
 				}
 			}
@@ -231,6 +232,10 @@ namespace EcoIsland
 		}
 
 		public int boughtObjects(string objName) {
+			if (this.saveSys.fileExists(this.objectsFilePath) == false) {
+				return 0;
+			}
+			
 			string fileResult = this.saveSys.readFile(this.objectsFilePath);
 			List<ObjectPrefab> result = JsonConvert.DeserializeObject<List<ObjectPrefab>>(fileResult);
 

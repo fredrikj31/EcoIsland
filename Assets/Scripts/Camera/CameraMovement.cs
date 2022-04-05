@@ -21,6 +21,7 @@ namespace EcoIsland
 		void Start()
 		{
 			this.cam = this.GetComponent<Camera>();
+			this.isMoveable = true;
 		}
 
 		void Update()

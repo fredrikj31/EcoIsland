@@ -60,7 +60,8 @@ namespace EcoIsland
 					int moneyAmount = this.moneyManager.getMoney();
 					if ((moneyAmount - this.price) >= 0)
 					{
-						if (this.saveManager.GetComponent<SaveIsland>().boughtObjects(this.placedObject.name) == 0 || this.saveManager.GetComponent<SaveIsland>().boughtObjects(this.placedObject.name) < this.allowedObjects) {
+						print(this.saveManager.GetComponent<SaveIsland>().boughtObjects(this.placedObject.name));
+						if (this.saveManager.GetComponent<SaveIsland>().boughtObjects(this.placedObject.name) < this.allowedObjects) {
 							this.isPlacing = false;
 							// Play Effect
 							this.effectPlayer.playEffect("tile_placement");
