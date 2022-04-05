@@ -55,7 +55,6 @@ namespace EcoIsland
 
 		public List<Item> getItems()
 		{
-
 			// If file does not exists, return a empty list
 			if (this.saveSys.fileExists(this.itemsFile) == false)
 			{

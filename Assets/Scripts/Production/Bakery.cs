@@ -22,7 +22,10 @@ namespace EcoIsland
 		void Start()
 		{
 			this.barn = GameObject.FindGameObjectWithTag("Barn");
-			this.storage = this.barn.GetComponent<BarnStorage>();
+			if (this.barn != null) {
+				this.storage = this.barn.GetComponent<BarnStorage>();
+			}
+
 			this.bakeryMenu = GameObject.FindGameObjectWithTag("BakeryMenu").transform.GetChild(0).gameObject;
 
 			StartCoroutine(getBakeryThings());
