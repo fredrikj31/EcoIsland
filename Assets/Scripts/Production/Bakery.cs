@@ -15,6 +15,7 @@ namespace EcoIsland
 		private GameObject bakeryMenu;
 		private Animator animator;
 		private Bread bread;
+		private bool isBaking;
 
 		// Start is called before the first frame update
 		void Start()
@@ -26,6 +27,7 @@ namespace EcoIsland
 
 			// Resets its state
 			this.bread = null;
+			this.isBaking = false;
 
 			// Updates time and so on...
 			InvokeRepeating("updateBreadTime", 0f, 1f);
@@ -46,7 +48,9 @@ namespace EcoIsland
 		}
 
 		private void updateBreadTime() {
-			if (this.bread == null) {
+			print(this.isBaking);
+			if (this.isBaking == false) {
+				//print("I'm not baking");
 				return;
 			}
 
@@ -54,7 +58,6 @@ namespace EcoIsland
 			Debug.Log(this.bakeryMenu.name);
 			this.bakeryMenu.transform.GetChild(3).transform.GetChild(0).GetComponent<Text>().text = this.formatData(this.bread);
 			if (stage == 2) {
-				this.isFinished = true;
 				this.bread = null;
 			} else if (stage == 1 || stage == 0) {
 				this.animator.SetInteger("bakeryStatus", 1);
@@ -91,16 +94,15 @@ namespace EcoIsland
 			return popupText;
 		}
 
-		public void closeMenu()
-		{
-			this.bakeryMenu.SetActive(false);
-		}
-
 		public void bakeBread() {
-			if (this.bread == null) {
-				print("Hej");
+			this.isBaking = true;
+			if (this.isBaking == false) {
+				//print("Baking now");
 				Bread bread = new Bread(DateTime.Now);
 				this.bread = bread;
+				this.isBaking = true;
+			} else {
+				//print("Hej");
 			}
 		}
 	}

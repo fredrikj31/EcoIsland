@@ -27,8 +27,12 @@ namespace EcoIsland
 			this.maps = GameObject.FindObjectsOfType<Tilemap>();
 
 			// Load Map
-			this.loadTilemaps();
-			this.loadObjects();
+			if (this.saveSys.fileExists(this.tilemapFilePath) == true) {
+				this.loadTilemaps();
+			}
+			if (this.saveSys.fileExists(this.objectsFilePath) == true) {
+				this.loadObjects();
+			}
 		}
 
 		public void saveObjects()
