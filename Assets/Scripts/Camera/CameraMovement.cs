@@ -7,6 +7,7 @@ namespace EcoIsland
 {
 	public class CameraMovement : MonoBehaviour
 	{
+		public bool isMoveable;
 		public float leftLimit;
 		public float rightLimit;
 		public float bottomLimit;
@@ -24,6 +25,10 @@ namespace EcoIsland
 
 		void Update()
 		{
+			if (this.isMoveable == false) {
+				return;
+			}
+
 			if (Input.touchCount > 0)
 			{
 				if (Input.touchCount == 2)
@@ -65,6 +70,10 @@ namespace EcoIsland
 					}
 				}
 			}
+		}
+
+		public void toggleMoveable(bool active) {
+			this.isMoveable = active;
 		}
 
 		private void OnDrawGizmos()
