@@ -7,7 +7,7 @@ namespace EcoIsland
 {
 	public class SiloMenu : MonoBehaviour
 	{
-		public GameObject siloItems;
+		private GameObject siloItems;
 		private GameObject siloMenu;
 		private SiloStorage siloStorage;
 
@@ -15,6 +15,7 @@ namespace EcoIsland
 		void Start()
 		{
 			this.siloMenu = GameObject.FindGameObjectWithTag("SiloMenu").transform.GetChild(0).gameObject;
+			this.siloItems = this.siloMenu.transform.GetChild(2).GetChild(0).GetChild(0).gameObject;
 			this.siloStorage = this.GetComponent<SiloStorage>();
 
 			this.updateUI();
@@ -35,7 +36,7 @@ namespace EcoIsland
 
 			foreach (CropItem item in result)
 			{
-				GameObject selectObject = siloItems.transform.Find(item.cropName).gameObject;
+				GameObject selectObject = this.siloItems.transform.Find(item.cropName).gameObject;
 				Text cropText = selectObject.transform.GetChild(1).GetComponent<Text>();
 
 				cropText.text = item.cropAmount.ToString();
