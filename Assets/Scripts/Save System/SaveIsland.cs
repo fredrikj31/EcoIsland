@@ -44,7 +44,7 @@ namespace EcoIsland
 				{
 					//Debug.Log(selectedObject.name.Split(' ')[0]);
 					ObjectPrefab temp = new ObjectPrefab();
-					temp.name = selectedObject.name.Split(' ')[0];
+					temp.name = selectedObject.name.Split('(')[0];
 					temp.tag = selectedObject.tag;
 					temp.xPos = selectedObject.transform.position.x;
 					temp.yPos = selectedObject.transform.position.y;
