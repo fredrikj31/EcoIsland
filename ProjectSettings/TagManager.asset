@@ -22,6 +22,7 @@ TagManager:
   - Silo
   - Bakery
   - BakeryController
+  - House
   layers:
   - Default
   - TransparentFX

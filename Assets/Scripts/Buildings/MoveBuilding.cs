@@ -38,37 +38,40 @@ namespace EcoIsland
 
 			Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			RaycastHit2D hitInformation = Physics2D.Raycast(mouseWorldPos, Camera.main.transform.forward);
- 
-            if (hitInformation.collider.name != this.GetComponent<Collider2D>().name) {
-                return;
-            }
-
-			if (Input.GetTouch(0).phase == TouchPhase.Began)
-			{ // If the user puts her finger on screen...
-				this.beginPressed = DateTime.Now;
+	
+			if (hitInformation.collider == null || this.GetComponent<Collider2D>() == null) {
+				return;
 			}
 
-			if (Input.GetTouch(0).phase == TouchPhase.Moved)
-			{ // If the user raises her finger from screen
-			  //print("I got raised");
-				this.pressed = DateTime.Now;
+            if (hitInformation.collider.name != this.GetComponent<Collider2D>().name) {
+                return;
+            } else {
+				if (Input.GetTouch(0).phase == TouchPhase.Began)
+				{ // If the user puts her finger on screen...
+					this.beginPressed = DateTime.Now;
+				}
 
-				if (this.pressed > this.beginPressed.AddSeconds(this.timeDelayThreshold))
+				if (Input.GetTouch(0).phase == TouchPhase.Moved)
 				{
-					this.movement.toggleMoveable(false);
+					this.pressed = DateTime.Now;
 
-					// Is the time pressed greater than our time delay threshold?
-					//Do whatever you want
-					this.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
-					
+					if (this.pressed > this.beginPressed.AddSeconds(this.timeDelayThreshold))
+					{
+						this.movement.toggleMoveable(false);
+						// Is the time pressed greater than our time delay threshold?
+						//Do whatever you want
+						this.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
+						
+					}
+				}
+
+				if (Input.GetTouch(0).phase == TouchPhase.Ended)
+				{
+					this.movement.toggleMoveable(true);
+					this.saveIsland.saveObjects();
 				}
 			}
 
-			if (Input.GetTouch(0).phase == TouchPhase.Ended)
-			{
-				this.movement.toggleMoveable(true);
-				this.saveIsland.saveObjects();
-			}
 
 		}
 	}
