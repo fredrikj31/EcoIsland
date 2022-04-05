@@ -59,7 +59,7 @@ namespace EcoIsland
 					{
 						TileBase clickedTile = this.tileMap.GetTile(this.getMousePosition());
 						PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
-						if (clickedTile.name == "Field")
+						if (clickedTile.name == "emptyCrop")
 						{
 							Vector3 cellPos = this.getCellPosition();
 							this.selectedTile = getMousePosition();

@@ -107507,7 +107507,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 05908cbdc5b2ccb4788ff8d6591cb305, type: 2}
   - {fileID: 11400000, guid: 5d401e533ce07fe4f81c02f7e3d4762e, type: 2}
   - {fileID: 11400000, guid: eefe9f320aa9d2f4e958e0e93bd6df6d, type: 2}
-  - {fileID: 11400000, guid: 230f82fb7f48837489d436cb3f2d57ba, type: 2}
+  - {fileID: 11400000, guid: e5c7d1916cc1916429ddf993fc361854, type: 2}
   - {fileID: 11400000, guid: 16efc4f4a2da9b84abb576b6c6de8bb0, type: 2}
   - {fileID: 11400000, guid: 3d321b8311350414da9e1092795b86c2, type: 2}
   - {fileID: 11400000, guid: 6200eacaed739104bb3cb0dd91397544, type: 2}
@@ -108114,6 +108114,8 @@ GameObject:
   m_Component:
   - component: {fileID: 428576437}
   - component: {fileID: 428576436}
+  - component: {fileID: 428576439}
+  - component: {fileID: 428576438}
   m_Layer: 0
   m_Name: PineTree
   m_TagString: Untagged
@@ -108186,6 +108188,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &428576438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428576435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f1746a03d80e84f9e328e04588463a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeChopDialog: {fileID: 4520922844670848335, guid: def7cde048b4efa45ab6619372669382, type: 3}
+--- !u!61 &428576439
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428576435}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.018471241, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.3333334}
+    newSize: {x: 1, y: 1.3333334}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.79417896, y: 1.3333334}
+  m_EdgeRadius: 0
 --- !u!1 &444393897
 GameObject:
   m_ObjectHideFlags: 0
@@ -124744,7 +124785,7 @@ MonoBehaviour:
   - {fileID: 1109677228}
   - {fileID: 645960169}
   scrollView: {fileID: 2026110292}
-  placedTile: {fileID: 11400000, guid: 230f82fb7f48837489d436cb3f2d57ba, type: 2}
+  placedTile: {fileID: 11400000, guid: e5c7d1916cc1916429ddf993fc361854, type: 2}
   placeMap: {fileID: 103471852}
   saveManager: {fileID: 348481137}
   price: 10
@@ -129163,7 +129204,7 @@ MonoBehaviour:
   - {fileID: 1109677228}
   - {fileID: 645960169}
   scrollView: {fileID: 2026110292}
-  placedTile: {fileID: 11400000, guid: 3d321b8311350414da9e1092795b86c2, type: 2}
+  placedTile: {fileID: 11400000, guid: 16efc4f4a2da9b84abb576b6c6de8bb0, type: 2}
   placeMap: {fileID: 1733381363}
   saveManager: {fileID: 348481137}
   price: 100
@@ -129283,8 +129324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 944635857}
   tileMap: {fileID: 103471852}
-  emptyField: {fileID: 11400000, guid: 230f82fb7f48837489d436cb3f2d57ba, type: 2}
-  waterMap: {fileID: 0}
+  emptyField: {fileID: 11400000, guid: e5c7d1916cc1916429ddf993fc361854, type: 2}
+  waterMap: {fileID: 1962069640}
   waterTile: {fileID: 11400000, guid: 0b38f5fb6a37813499722ac888796933, type: 2}
   wheatTiles:
   - {fileID: 11400000, guid: 9e0040d1e4755544c92f92ee27a87a72, type: 2}
