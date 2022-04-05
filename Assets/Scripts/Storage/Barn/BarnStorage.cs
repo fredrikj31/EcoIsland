@@ -15,8 +15,8 @@ namespace EcoIsland
 		// Start is called before the first frame update
 		void Start()
 		{
-			this.barnMenu = GameObject.FindGameObjectWithTag("BarnMenu").transform.GetChild(0).gameObject;
 			this.saveSys = new SaveSystem();
+			this.barnMenu = GameObject.FindGameObjectWithTag("BarnMenu").transform.GetChild(0).gameObject;
 			this.itemsFile = Application.persistentDataPath + "/items.json";
 
 			// Check if file exists, if not, then create it, with one wheat in the file
