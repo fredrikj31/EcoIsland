@@ -27,7 +27,7 @@ namespace EcoIsland
 
 				// Create default values
 				Money money = new Money();
-				money.amount = 0;
+				money.amount = 50000;
 
 				// Write the content to the file
 				string jsonData = JsonConvert.SerializeObject(money);
