@@ -107518,6 +107518,9 @@ MonoBehaviour:
   - {fileID: 5687357802116365885, guid: 0ccea9182d3fdf041bf42ccbc52677c3, type: 3}
   - {fileID: 8876348877852187087, guid: 615a7c4daf9a92947b0c23e1248dddf2, type: 3}
   - {fileID: 8123362284817335814, guid: 2d57d0885b9c1de428a6cbda24055401, type: 3}
+  - {fileID: 962826667086901562, guid: a7ff05bf034d5ba468f48546bd4b53c2, type: 3}
+  - {fileID: 8644174183744898558, guid: 73180878459abc346b2050964c3f4548, type: 3}
+  - {fileID: 6520106395646599146, guid: 52f387745ca66db468a6e7512114573d, type: 3}
   saveTags:
   - Animal
   - Decoration
@@ -131214,6 +131217,18 @@ PrefabInstance:
     - target: {fileID: 962826667086901562, guid: a7ff05bf034d5ba468f48546bd4b53c2, type: 3}
       propertyPath: m_Name
       value: House
+      objectReference: {fileID: 0}
+    - target: {fileID: 962826667086901563, guid: a7ff05bf034d5ba468f48546bd4b53c2, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 962826667086901563, guid: a7ff05bf034d5ba468f48546bd4b53c2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 962826667086901563, guid: a7ff05bf034d5ba468f48546bd4b53c2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 962826667086901564, guid: a7ff05bf034d5ba468f48546bd4b53c2, type: 3}
       propertyPath: m_RootOrder

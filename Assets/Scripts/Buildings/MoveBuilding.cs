@@ -11,14 +11,16 @@ namespace EcoIsland
 		public double timeDelayThreshold = 2.0f;
 		private DateTime beginPressed;
 		private DateTime pressed;
-		public GameObject mainCamera;
+		private GameObject mainCamera;
 		private CameraMovement movement;
+		private SaveIsland saveIsland;
 
 		// Start is called before the first frame update
 		void Start()
 		{
 			this.mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			this.movement = this.mainCamera.GetComponent<CameraMovement>();
+			this.saveIsland = GameObject.FindGameObjectWithTag("SaveManager").GetComponent<SaveIsland>();
 		}
 
 		// Update is called once per frame
@@ -27,12 +29,19 @@ namespace EcoIsland
 			checkForLongPress();
 		}
 
-		private void checkForLongPress()
+		void checkForLongPress()
 		{
 			if (Input.touchCount == 0)
 			{
 				return;
 			}
+
+			Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			RaycastHit2D hitInformation = Physics2D.Raycast(mouseWorldPos, Camera.main.transform.forward);
+ 
+            if (hitInformation.collider.name != this.GetComponent<Collider2D>().name) {
+                return;
+            }
 
 			if (Input.GetTouch(0).phase == TouchPhase.Began)
 			{ // If the user puts her finger on screen...
@@ -50,7 +59,6 @@ namespace EcoIsland
 
 					// Is the time pressed greater than our time delay threshold?
 					//Do whatever you want
-					Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 					this.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
 					
 				}
@@ -59,6 +67,7 @@ namespace EcoIsland
 			if (Input.GetTouch(0).phase == TouchPhase.Ended)
 			{
 				this.movement.toggleMoveable(true);
+				this.saveIsland.saveObjects();
 			}
 
 		}
