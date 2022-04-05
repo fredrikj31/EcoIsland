@@ -28,12 +28,12 @@ namespace EcoIsland
 
 		void OnMouseDown()
 		{
-			Touch touch = Input.GetTouch(0);
-			Vector2 pos = touch.position;
+			Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
 
-			print(menu);
-			menu.setPosition(new Vector3(pos.x, pos.y, 0));
+			print(mouseWorldPos);
+
+			menu.setPosition(new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0));
 			menu.setObject(this.treeChopDialog);
 			menu.openPopup();
 		}
