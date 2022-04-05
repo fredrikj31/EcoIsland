@@ -20,7 +20,6 @@ namespace EcoIsland
 		public TileBase[] carrotTiles = new TileBase[3];
 		public Dictionary<Vector3Int, Crop> crops = new Dictionary<Vector3Int, Crop>();
 		public GameObject statusMenu;
-		public GameObject silo;
 		private SiloStorage storage;
 		public GameObject selectCropMenu;
 		public GameObject noWaterMenu;
@@ -39,7 +38,7 @@ namespace EcoIsland
 		void Start()
 		{
 			this.popupMenu = GameObject.FindGameObjectWithTag("PopupMenu");
-			this.storage = this.silo.GetComponent<SiloStorage>();
+			this.storage = GameObject.FindGameObjectWithTag("Silo").GetComponent<SiloStorage>();
 
 			InvokeRepeating("updateCropsTime", 0f, 1f);
 		}
