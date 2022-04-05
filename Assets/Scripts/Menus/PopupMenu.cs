@@ -46,13 +46,14 @@ namespace EcoIsland
 
 		public void setPosition(Vector3 pos)
 		{
+			print(pos);
 			pos.y = pos.y + 1.25f;
 			this.position = pos;
 		}
 
 		public void openPopup()
 		{
-			this.transform.position = this.position;
+			this.GetComponent<RectTransform>().anchoredPosition = this.position;
 		}
 
 		public void closePopup()

@@ -13,11 +13,13 @@ namespace EcoIsland
 
 		// Popup Menu
 		private GameObject popupMenu;
+		private PopupMenu menu;
 
 		// Start is called before the first frame update
 		void Start()
 		{
 			this.popupMenu = GameObject.FindGameObjectWithTag("PopupMenu");
+			this.menu = this.popupMenu.GetComponent<PopupMenu>();
 		}
 
 		// Update is called once per frame
@@ -29,11 +31,9 @@ namespace EcoIsland
 		void OnMouseDown()
 		{
 			Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
+			Vector3 pos = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
 
-			print(mouseWorldPos);
-
-			menu.setPosition(new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0));
+			menu.setPosition(pos);
 			menu.setObject(this.treeChopDialog);
 			menu.openPopup();
 		}
