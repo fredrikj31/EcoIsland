@@ -15,9 +15,9 @@ namespace EcoIsland
 		// Start is called before the first frame update
 		void Start()
 		{
-			this.siloMenu = GameObject.FindGameObjectWithTag("SiloMenu").transform.GetChild(0).gameObject;
 			this.saveSys = new SaveSystem();
 			this.cropFile = Application.persistentDataPath + "/cropitem.json";
+			this.siloMenu = GameObject.FindGameObjectWithTag("SiloMenu").transform.GetChild(0).gameObject;
 
 			// Check if file exists, if not, then create it, with one wheat in the file
 			if (this.saveSys.fileExists(this.cropFile) == false)
@@ -54,7 +54,6 @@ namespace EcoIsland
 
 		public List<CropItem> getCropItems()
 		{
-
 			// If file does not exists, return a empty list
 			if (this.saveSys.fileExists(this.cropFile) == false)
 			{

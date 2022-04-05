@@ -37,8 +37,10 @@ namespace EcoIsland
 
 		private IEnumerator getBakeryThings() {
 			yield return new WaitForSeconds(0.5f);
-			this.animator = GameObject.FindGameObjectWithTag("Bakery").GetComponent<Animator>();
-			print("Im here");
+
+			if (GameObject.FindGameObjectWithTag("Bakery") != null) {
+				this.animator = GameObject.FindGameObjectWithTag("Bakery").GetComponent<Animator>();
+			}
 		}
 
 		private void updateBreadTime() {
