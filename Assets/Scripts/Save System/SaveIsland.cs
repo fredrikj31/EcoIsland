@@ -8,6 +8,8 @@ namespace EcoIsland
 {
 	public class SaveIsland : MonoBehaviour
 	{
+		public string[] reloadControllerTags;
+
 		public Tilemap[] maps;
 		public string[] ignoreMaps;
 		public TileBase[] tiles;
@@ -225,6 +227,16 @@ namespace EcoIsland
 						map.SetTile(new Vector3Int(tile.xPos, tile.yPos, tile.zPos), tiles[tile.tileType]);
 					}
 				}
+			}
+		}
+
+		public void reloadControllers() {
+			foreach (string controller in this.reloadControllerTags)
+			{
+				GameObject obj = GameObject.FindGameObjectWithTag(controller);
+
+				obj.SetActive(false);
+				obj.SetActive(true);
 			}
 		}
 	}

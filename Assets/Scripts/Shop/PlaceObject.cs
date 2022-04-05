@@ -65,6 +65,9 @@ namespace EcoIsland
 						this.moneyManager.removeMoney(this.price);
 						// Save the map
 						this.islandManager.saveObjects();
+
+						// Reload Objects
+						this.islandManager.reloadControllers();
 						return;
 					}
 					else
