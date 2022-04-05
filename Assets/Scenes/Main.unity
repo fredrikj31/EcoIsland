@@ -125345,6 +125345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Silo
       objectReference: {fileID: 0}
+    - target: {fileID: 6520106395646599150, guid: 52f387745ca66db468a6e7512114573d, type: 3}
+      propertyPath: siloItems
+      value: 
+      objectReference: {fileID: 810652809}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f387745ca66db468a6e7512114573d, type: 3}
 --- !u!1 &844876701 stripped
@@ -126351,6 +126355,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8644174183744898554, guid: 73180878459abc346b2050964c3f4548, type: 3}
+      propertyPath: barnItems
+      value: 
+      objectReference: {fileID: 2077532638}
     - target: {fileID: 8644174183744898556, guid: 73180878459abc346b2050964c3f4548, type: 3}
       propertyPath: m_RootOrder
       value: 16
