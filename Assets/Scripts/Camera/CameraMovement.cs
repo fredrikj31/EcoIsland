@@ -7,8 +7,6 @@ namespace EcoIsland
 {
 	public class CameraMovement : MonoBehaviour
 	{
-		public GameObject buildingManager;
-
 		public float leftLimit;
 		public float rightLimit;
 		public float bottomLimit;
@@ -22,16 +20,10 @@ namespace EcoIsland
 		void Start()
 		{
 			this.cam = this.GetComponent<Camera>();
-			this.manager = this.buildingManager.GetComponent<BuildingManager>();
 		}
 
 		void Update()
 		{
-			if (this.manager.isPlacing == true)
-			{
-				return;
-			}
-
 			if (Input.touchCount > 0)
 			{
 				if (Input.touchCount == 2)

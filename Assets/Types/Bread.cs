@@ -8,7 +8,7 @@ namespace EcoIsland
 	public class Bread : MonoBehaviour
 	{
 		public DateTime startedTime;
-		public int bakeTimeSeconds = 600;
+		public int bakeTimeSeconds = 30;
 
 		public Bread(DateTime startedTime)
 		{
@@ -47,6 +47,14 @@ namespace EcoIsland
 			double procents = (difference.TotalSeconds / this.bakeTimeSeconds) * 100;
 
 			return procents;
+		}
+
+		public int getProgressBarTime() {
+			// Calculate progress bar
+			double shares = 100 / 16;
+			int result = Convert.ToInt32(Math.Floor(Math.Round(this.getProcents()) / shares));
+
+			return result;
 		}
 
 		public TimeSpan getRemainingTime()

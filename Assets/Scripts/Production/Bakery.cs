@@ -9,7 +9,8 @@ namespace EcoIsland
 	public class Bakery : MonoBehaviour
 	{
 		public int bakeryStatus;
-		private bool isFinished;
+		public Sprite[] progressImages;
+		public bool isFinished;
 		private GameObject barn;
 		private BarnStorage storage;
 		private GameObject bakeryMenu;
@@ -23,7 +24,8 @@ namespace EcoIsland
 			this.barn = GameObject.FindGameObjectWithTag("Barn");
 			this.storage = this.barn.GetComponent<BarnStorage>();
 			this.bakeryMenu = GameObject.FindGameObjectWithTag("BakeryMenu").transform.GetChild(0).gameObject;
-			this.animator = this.GetComponent<Animator>();
+
+			StartCoroutine(getBakeryThings());
 
 			// Resets its state
 			this.bread = null;
@@ -33,29 +35,33 @@ namespace EcoIsland
 			InvokeRepeating("updateBreadTime", 0f, 1f);
 		}
 
-		// Update is called once per frame
-		void Update()
-		{
-		}
-
-		void OnMouseDown()
-		{
-			if (this.isFinished == true) {
-				this.storage.addItem(ItemTypes.Bread);
-			} else {
-				this.bakeryMenu.SetActive(true);
-			}
+		private IEnumerator getBakeryThings() {
+			yield return new WaitForSeconds(0.5f);
+			this.animator = GameObject.FindGameObjectWithTag("Bakery").GetComponent<Animator>();
+			print("Im here");
 		}
 
 		private void updateBreadTime() {
-			print(this.isBaking);
 			if (this.isBaking == false) {
 				//print("I'm not baking");
 				return;
 			}
 
+			if (this.isFinished == true) {
+				return;
+			}
+
 			int stage = this.bread.checkTime();
-			Debug.Log(this.bakeryMenu.name);
+			if (stage == 2) {
+				this.isFinished = true;
+				this.isBaking = false;
+				return;
+			}
+
+			// Update Progress Bar
+			int state = this.bread.getProgressBarTime();
+			this.bakeryMenu.transform.GetChild(3).gameObject.GetComponent<Image>().sprite = this.progressImages[state];
+			// Update Text
 			this.bakeryMenu.transform.GetChild(3).transform.GetChild(0).GetComponent<Text>().text = this.formatData(this.bread);
 			if (stage == 2) {
 				this.bread = null;
@@ -95,14 +101,13 @@ namespace EcoIsland
 		}
 
 		public void bakeBread() {
-			this.isBaking = true;
 			if (this.isBaking == false) {
 				//print("Baking now");
 				Bread bread = new Bread(DateTime.Now);
 				this.bread = bread;
 				this.isBaking = true;
 			} else {
-				//print("Hej");
+				print("Hej");
 			}
 		}
 	}

@@ -9,7 +9,7 @@ namespace EcoIsland
 	public class SaveIsland : MonoBehaviour
 	{
 		public Tilemap[] maps;
-		public string ignoreMap;
+		public string[] ignoreMaps;
 		public TileBase[] tiles;
 		public GameObject[] prefabObjects;
 		public string[] saveTags;
@@ -113,10 +113,19 @@ namespace EcoIsland
 
 			foreach (Tilemap map in this.maps)
 			{
-				if (map.name == this.ignoreMap)
+				bool skip = false;
+				foreach (string ignoreMap in this.ignoreMaps)
 				{
+					if (map.name == ignoreMap)
+					{
+						skip = true;
+					}
+				}
+
+				if (skip == true) {
 					continue;
 				}
+				
 
 				BoundsInt bounds = map.cellBounds;
 				TileBase[] allTiles = map.GetTilesBlock(bounds);
@@ -173,9 +182,17 @@ namespace EcoIsland
 			// Clearing the maps
 			foreach (Tilemap map in this.maps)
 			{
-				// Ignore ground map
-				if (map.name == this.ignoreMap)
+				// Ignore Maps
+				bool skip = false;
+				foreach (string ignoreMap in this.ignoreMaps)
 				{
+					if (map.name == ignoreMap)
+					{
+						skip = true;
+					}
+				}
+
+				if (skip == true) {
 					continue;
 				}
 
@@ -187,8 +204,16 @@ namespace EcoIsland
 			foreach (Tilemap map in this.maps)
 			{
 				// Ignore ground map
-				if (map.name == this.ignoreMap)
+				bool skip = false;
+				foreach (string ignoreMap in this.ignoreMaps)
 				{
+					if (map.name == ignoreMap)
+					{
+						skip = true;
+					}
+				}
+
+				if (skip == true) {
 					continue;
 				}
 
