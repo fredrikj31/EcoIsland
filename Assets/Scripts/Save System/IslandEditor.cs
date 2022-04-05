@@ -31,6 +31,10 @@ namespace EcoIsland
 			{
 				myTarget.loadObjects();
 			}
+			if (GUILayout.Button("Count Trees"))
+			{
+				myTarget.boughtObjects("BigTree");
+			}
 		}
 	}
 }

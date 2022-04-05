@@ -14,7 +14,9 @@ namespace EcoIsland
 		public GameObject placedObject;
 		public GameObject saveManager;
 		public int price;
+		public int allowedObjects;
 		public GameObject noMoneyDialog;
+		public GameObject noMoreObjects;
 		private SaveMoney moneyManager;
 		private ScrollRect scroll;
 		private GameObject spawnedObject;
@@ -58,17 +60,30 @@ namespace EcoIsland
 					int moneyAmount = this.moneyManager.getMoney();
 					if ((moneyAmount - this.price) >= 0)
 					{
-						this.isPlacing = false;
-						// Play Effect
-						this.effectPlayer.playEffect("tile_placement");
-						// Remove Money
-						this.moneyManager.removeMoney(this.price);
-						// Save the map
-						this.islandManager.saveObjects();
+						if (this.saveManager.GetComponent<SaveIsland>().boughtObjects(this.placedObject.name) == 0 || this.saveManager.GetComponent<SaveIsland>().boughtObjects(this.placedObject.name) < this.allowedObjects) {
+							this.isPlacing = false;
+							// Play Effect
+							this.effectPlayer.playEffect("tile_placement");
+							// Remove Money
+							this.moneyManager.removeMoney(this.price);
+							// Save the map
+							this.islandManager.saveObjects();
 
-						// Reload Objects
-						this.islandManager.reloadControllers();
-						return;
+							// Reload Objects
+							this.islandManager.reloadControllers();
+							return;
+						} else {
+							this.isPlacing = false;
+							// Play Effect
+							this.effectPlayer.playEffect("tile_placement");
+							// Removing the object
+							Destroy(this.spawnedObject);
+							// Setting the menu.
+							StartCoroutine(this.displayNoMoreObjects(this.position));
+							//Debug.Log("No money to that.");
+							return;
+						}
+
 					}
 					else
 					{
@@ -78,7 +93,7 @@ namespace EcoIsland
 						// Removing the object
 						Destroy(this.spawnedObject);
 						// Setting the menu.
-						StartCoroutine(this.displayDialog(this.position));
+						StartCoroutine(this.displayNoMoneyDialog(this.position));
 						//Debug.Log("No money to that.");
 						return;
 					}
@@ -86,7 +101,18 @@ namespace EcoIsland
 			}
 		}
 
-		private IEnumerator displayDialog(Vector3 pos)
+		private IEnumerator displayNoMoreObjects(Vector3 pos)
+		{
+			PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
+			menu.setPosition(pos);
+			menu.setObject(this.noMoreObjects);
+			menu.openPopup();
+
+			yield return new WaitForSeconds(2f);
+			menu.closePopup();
+		}
+
+		private IEnumerator displayNoMoneyDialog(Vector3 pos)
 		{
 			PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
 			menu.setPosition(pos);

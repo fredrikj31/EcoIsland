@@ -230,6 +230,24 @@ namespace EcoIsland
 			}
 		}
 
+		public int boughtObjects(string objName) {
+			string fileResult = this.saveSys.readFile(this.objectsFilePath);
+			List<ObjectPrefab> result = JsonConvert.DeserializeObject<List<ObjectPrefab>>(fileResult);
+
+			int count = 0;
+			foreach (ObjectPrefab item in result)
+			{
+				if (item.name == objName)
+				{
+					count++;
+				} else {
+					continue;
+				}
+			}
+
+			return count;
+		}
+
 		public void reloadControllers() {
 			foreach (string controller in this.reloadControllerTags)
 			{
