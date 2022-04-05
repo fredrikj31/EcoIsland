@@ -24,6 +24,7 @@ TagManager:
   - BakeryController
   - House
   - SiloItems
+  - BarnItems
   layers:
   - Default
   - TransparentFX

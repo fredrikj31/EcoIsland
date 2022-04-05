@@ -7,7 +7,7 @@ namespace EcoIsland
 {
 	public class BarnMenu : MonoBehaviour
 	{
-		public GameObject barnItems;
+		private GameObject barnItems;
 		private GameObject barnMenu;
 		private BarnStorage barnStorage;
 
@@ -15,6 +15,7 @@ namespace EcoIsland
 		void Start()
 		{
 			this.barnMenu = GameObject.FindGameObjectWithTag("BarnMenu").transform.GetChild(0).gameObject;
+			this.barnItems = this.barnMenu.transform.GetChild(2).GetChild(0).GetChild(0).gameObject;
 			this.barnStorage = this.GetComponent<BarnStorage>();
 
 			this.updateUI();
