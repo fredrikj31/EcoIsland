@@ -145,7 +145,7 @@ namespace EcoIsland
 			{
 				if (map.name == "Waters") {
 					if (map.GetTile(pos)) {
-						print("Im on the water.");
+						//print("Im on the water.");
 						return false;
 					} else {
 						return true;

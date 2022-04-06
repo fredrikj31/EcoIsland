@@ -419,7 +419,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4027651923015401807, guid: 80e2b595f00fb47478a2842763d70dbd, type: 3}
+  m_Sprite: {fileID: -4027651923015401807, guid: 73f5cdf6c185a4c4196621a77fbe5044, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -107132,6 +107132,7 @@ MonoBehaviour:
   - {fileID: 221353496}
   - {fileID: 758966993}
   - {fileID: 103471852}
+  - {fileID: 1962069640}
   - {fileID: 1733381363}
   - {fileID: 1109677228}
   - {fileID: 645960169}
@@ -107891,7 +107892,7 @@ MonoBehaviour:
   placedObject: {fileID: 3661196808090924535, guid: ee87107e741d4c24cb0cae6f19cc2396, type: 3}
   saveManager: {fileID: 348481137}
   price: 100
-  allowedObjects: 0
+  allowedObjects: 10000
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
   noMoreObjects: {fileID: 7519672384217075532, guid: 7f8195c621f424b4a879724608edba6b, type: 3}
 --- !u!222 &369661388
@@ -108150,6 +108151,7 @@ MonoBehaviour:
   - {fileID: 221353496}
   - {fileID: 758966993}
   - {fileID: 103471852}
+  - {fileID: 1962069640}
   - {fileID: 1733381363}
   - {fileID: 1109677228}
   - {fileID: 645960169}
@@ -108593,7 +108595,7 @@ MonoBehaviour:
   placedObject: {fileID: 7173917063176093805, guid: 1612fb09d0c2e114eb40d46a680c150c, type: 3}
   saveManager: {fileID: 348481137}
   price: 25
-  allowedObjects: 0
+  allowedObjects: 10000
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
   noMoreObjects: {fileID: 7519672384217075532, guid: 7f8195c621f424b4a879724608edba6b, type: 3}
 --- !u!222 &475753681
@@ -124866,7 +124868,7 @@ MonoBehaviour:
   placedObject: {fileID: 3499425474737254304, guid: 608bb2c96534cf74f97da23f6b593c66, type: 3}
   saveManager: {fileID: 348481137}
   price: 20
-  allowedObjects: 0
+  allowedObjects: 10000
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
   noMoreObjects: {fileID: 7519672384217075532, guid: 7f8195c621f424b4a879724608edba6b, type: 3}
 --- !u!222 &767389472
@@ -124941,6 +124943,7 @@ MonoBehaviour:
   - {fileID: 221353496}
   - {fileID: 758966993}
   - {fileID: 103471852}
+  - {fileID: 1962069640}
   - {fileID: 1733381363}
   - {fileID: 1109677228}
   - {fileID: 645960169}
@@ -125548,6 +125551,7 @@ MonoBehaviour:
   - {fileID: 221353496}
   - {fileID: 758966993}
   - {fileID: 103471852}
+  - {fileID: 1962069640}
   - {fileID: 1733381363}
   - {fileID: 1109677228}
   - {fileID: 645960169}
@@ -126188,7 +126192,7 @@ MonoBehaviour:
   placedObject: {fileID: 8393227970947856242, guid: 5d4814a53e8519f479f506e51588970d, type: 3}
   saveManager: {fileID: 348481137}
   price: 15
-  allowedObjects: 0
+  allowedObjects: 10000
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
   noMoreObjects: {fileID: 7519672384217075532, guid: 7f8195c621f424b4a879724608edba6b, type: 3}
 --- !u!222 &972577654
@@ -126291,7 +126295,7 @@ MonoBehaviour:
   placedObject: {fileID: 4335779761479824802, guid: 2598ec6a806e25d4b9acf27bf4aaf968, type: 3}
   saveManager: {fileID: 348481137}
   price: 10
-  allowedObjects: 0
+  allowedObjects: 10000
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
   noMoreObjects: {fileID: 7519672384217075532, guid: 7f8195c621f424b4a879724608edba6b, type: 3}
 --- !u!222 &988119980
@@ -128129,7 +128133,7 @@ MonoBehaviour:
   placedObject: {fileID: 5687357802116365885, guid: 0ccea9182d3fdf041bf42ccbc52677c3, type: 3}
   saveManager: {fileID: 348481137}
   price: 50
-  allowedObjects: 0
+  allowedObjects: 10000
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
   noMoreObjects: {fileID: 7519672384217075532, guid: 7f8195c621f424b4a879724608edba6b, type: 3}
 --- !u!222 &1215419037
@@ -129771,6 +129775,7 @@ MonoBehaviour:
   - {fileID: 221353496}
   - {fileID: 758966993}
   - {fileID: 103471852}
+  - {fileID: 1962069640}
   - {fileID: 1733381363}
   - {fileID: 1109677228}
   - {fileID: 645960169}
@@ -130898,7 +130903,7 @@ MonoBehaviour:
   placedObject: {fileID: 5687357802116365885, guid: 0ccea9182d3fdf041bf42ccbc52677c3, type: 3}
   saveManager: {fileID: 348481137}
   price: 50
-  allowedObjects: 0
+  allowedObjects: 10000
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
   noMoreObjects: {fileID: 7519672384217075532, guid: 7f8195c621f424b4a879724608edba6b, type: 3}
 --- !u!222 &1625852059
@@ -133419,7 +133424,7 @@ MonoBehaviour:
   placedObject: {fileID: 2036981978538081871, guid: 7484c9de5e16b1d48bf167dc2638f574, type: 3}
   saveManager: {fileID: 348481137}
   price: 50
-  allowedObjects: 0
+  allowedObjects: 10000
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
   noMoreObjects: {fileID: 7519672384217075532, guid: 7f8195c621f424b4a879724608edba6b, type: 3}
 --- !u!222 &2043229974
