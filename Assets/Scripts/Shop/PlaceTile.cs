@@ -16,6 +16,7 @@ namespace EcoIsland
 		public GameObject saveManager;
 		public int price;
 		public GameObject noMoneyDialog;
+		public GameObject noPlaceDialog;
 		private SaveMoney moneyManager;
 		private ScrollRect scroll;
 		private Tilemap placeholderMap;
@@ -65,15 +66,26 @@ namespace EcoIsland
 					int moneyAmount = this.moneyManager.getMoney();
 					if ((moneyAmount - this.price) >= 0)
 					{
-						// Place tile
-						this.isPlacing = false;
-						this.placeTile(this.position);
-						this.placeholderMap.ClearAllTiles();
-						// Play Effect
-						this.effectPlayer.playEffect("tile_placement");
-						// Remove Money
-						this.moneyManager.removeMoney(this.price);
-						return;
+						if (this.checkTile(this.position)) {
+							// Place tile
+							this.isPlacing = false;
+							this.placeTile(this.position);
+							this.placeholderMap.ClearAllTiles();
+							// Play Effect
+							this.effectPlayer.playEffect("tile_placement");
+							// Remove Money
+							this.moneyManager.removeMoney(this.price);
+							return;
+						} else {
+							this.isPlacing = false;
+							this.placeholderMap.ClearAllTiles();
+							// Play Effect
+							this.effectPlayer.playEffect("tile_placement");
+							// Setting the menu.
+							StartCoroutine(this.displayDialog(this.position));
+							//Debug.Log("No money to that.");
+							return;
+						}
 					}
 					else
 					{
@@ -88,6 +100,16 @@ namespace EcoIsland
 					}
 				}
 			}
+		}
+
+		private IEnumerator displayPlaceWarning(Vector3 pos) {
+			PopupMenu menu = this.popupMenu.GetComponent<PopupMenu>();
+			menu.setPosition(pos);
+			menu.setObject(this.noPlaceDialog);
+			menu.openPopup();
+
+			yield return new WaitForSeconds(2f);
+			menu.closePopup();
 		}
 
 		private IEnumerator displayDialog(Vector3 pos)
@@ -116,6 +138,22 @@ namespace EcoIsland
 
 			// Save the map to the file
 			this.islandManager.saveTilemaps();
+		}
+
+		private bool checkTile(Vector3Int pos) {
+			foreach (Tilemap map in this.tilemaps)
+			{
+				if (map.name == "Waters") {
+					if (map.GetTile(pos)) {
+						print("Im on the water.");
+						return false;
+					} else {
+						return true;
+					}
+				}	
+			}
+
+			return false;
 		}
 
 		public void OnPointerDown(PointerEventData eventData)

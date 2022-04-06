@@ -16,9 +16,9 @@ namespace EcoIsland
 		{
 			this.siloMenu = GameObject.FindGameObjectWithTag("SiloMenu").transform.GetChild(0).gameObject;
 			this.siloItems = this.siloMenu.transform.GetChild(2).GetChild(0).GetChild(0).gameObject;
-			this.siloStorage = this.GetComponent<SiloStorage>();
+			this.siloStorage = GameObject.FindGameObjectWithTag("Silo").GetComponent<SiloStorage>();
 
-			this.updateUI();
+			StartCoroutine(this.updateUI());
 		}
 
 		void OnMouseDown()
@@ -30,14 +30,18 @@ namespace EcoIsland
 			this.siloMenu.SetActive(false);
 		}
 
-		public void updateUI()
+		public IEnumerator updateUI()
 		{
+			yield return new WaitForSeconds(0.2f);
+
 			List<CropItem> result = this.siloStorage.getCropItems();
 
 			foreach (CropItem item in result)
 			{
 				GameObject selectObject = this.siloItems.transform.Find(item.cropName).gameObject;
 				Text cropText = selectObject.transform.GetChild(1).GetComponent<Text>();
+
+				print(item.cropAmount);
 
 				cropText.text = item.cropAmount.ToString();
 			}

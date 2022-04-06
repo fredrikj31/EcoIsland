@@ -16,9 +16,9 @@ namespace EcoIsland
 		{
 			this.barnMenu = GameObject.FindGameObjectWithTag("BarnMenu").transform.GetChild(0).gameObject;
 			this.barnItems = this.barnMenu.transform.GetChild(2).GetChild(0).GetChild(0).gameObject;
-			this.barnStorage = this.GetComponent<BarnStorage>();
+			this.barnStorage = GameObject.FindGameObjectWithTag("Barn").GetComponent<BarnStorage>();
 
-			this.updateUI();
+			StartCoroutine(this.updateUI());
 		}
 
 		void OnMouseDown()
@@ -31,14 +31,18 @@ namespace EcoIsland
 			this.barnMenu.SetActive(false);
 		}
 
-		public void updateUI()
+		public IEnumerator updateUI()
 		{
+			yield return new WaitForSeconds(0.2f);
+
 			List<Item> result = this.barnStorage.getItems();
 
 			foreach (Item item in result)
 			{
 				GameObject selectObject = barnItems.transform.Find(item.itemName).gameObject;
 				Text cropText = selectObject.transform.GetChild(1).GetComponent<Text>();
+
+				print(item.itemAmount);
 
 				cropText.text = item.itemAmount.ToString();
 			}

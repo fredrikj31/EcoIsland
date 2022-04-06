@@ -16,6 +16,7 @@ namespace EcoIsland
 		void Start()
 		{
 			this.saveSys = new SaveSystem();
+
 			this.barnMenu = GameObject.FindGameObjectWithTag("BarnMenu").transform.GetChild(0).gameObject;
 			this.itemsFile = Application.persistentDataPath + "/items.json";
 
@@ -39,10 +40,9 @@ namespace EcoIsland
 			}
 		}
 
-		public void updateUI()
+		void OnMouseDown()
 		{
-			// Updates the menu UI
-			this.GetComponent<BarnMenu>().updateUI();
+			this.barnMenu.SetActive(true);
 		}
 
 		private void saveItems(List<Item> input)
@@ -55,6 +55,7 @@ namespace EcoIsland
 
 		public List<Item> getItems()
 		{
+			print(this.saveSys);
 			// If file does not exists, return a empty list
 			if (this.saveSys.fileExists(this.itemsFile) == false)
 			{
@@ -107,7 +108,7 @@ namespace EcoIsland
 					selectedItem.itemAmount += 1;
 					this.saveItems(allItems);
 					// Updates the silo menu UI
-					this.updateUI();
+					this.GetComponent<BarnMenu>().updateUI();
 					return;
 				}
 			}
@@ -122,7 +123,7 @@ namespace EcoIsland
 			allItems.Add(item);
 			this.saveItems(allItems);
 			// Updates the silo menu UI
-			this.updateUI();
+			this.GetComponent<BarnMenu>().updateUI();
 			return;
 		}
 
@@ -144,13 +145,13 @@ namespace EcoIsland
 					item.itemAmount -= 1;
 					this.saveItems(allItems);
 					// Updates the silo menu UI
-					this.updateUI();
+					this.GetComponent<BarnMenu>().updateUI();
 					return;
 				}
 			}
 
 			// Updates the silo menu UI
-			this.updateUI();
+			this.GetComponent<BarnMenu>().updateUI();
 			return;
 		}
 

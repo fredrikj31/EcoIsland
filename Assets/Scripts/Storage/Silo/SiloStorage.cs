@@ -39,6 +39,11 @@ namespace EcoIsland
 			}
 		}
 
+		void OnMouseDown()
+		{
+			this.siloMenu.SetActive(true);
+		}
+
 		public void updateUI() {
 			// Updates the menu UI
 			this.GetComponent<SiloMenu>().updateUI();

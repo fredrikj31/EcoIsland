@@ -107141,6 +107141,7 @@ MonoBehaviour:
   saveManager: {fileID: 348481137}
   price: 10
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
+  noPlaceDialog: {fileID: 8826120035837131335, guid: 4575156de4766ad42938a2b45736ac24, type: 3}
 --- !u!222 &299168994
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -108158,6 +108159,7 @@ MonoBehaviour:
   saveManager: {fileID: 348481137}
   price: 100
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
+  noPlaceDialog: {fileID: 8826120035837131335, guid: 4575156de4766ad42938a2b45736ac24, type: 3}
 --- !u!222 &427906297
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -124891,6 +124893,7 @@ MonoBehaviour:
   saveManager: {fileID: 348481137}
   price: 10
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
+  noPlaceDialog: {fileID: 8826120035837131335, guid: 4575156de4766ad42938a2b45736ac24, type: 3}
 --- !u!1 &792555431
 GameObject:
   m_ObjectHideFlags: 0
@@ -125497,6 +125500,7 @@ MonoBehaviour:
   saveManager: {fileID: 348481137}
   price: 100
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
+  noPlaceDialog: {fileID: 8826120035837131335, guid: 4575156de4766ad42938a2b45736ac24, type: 3}
 --- !u!222 &852773847
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -129661,6 +129665,7 @@ MonoBehaviour:
   saveManager: {fileID: 348481137}
   price: 100
   noMoneyDialog: {fileID: 3887385747201377078, guid: 8c39b76df67178c4eb0e003bf9773c1f, type: 3}
+  noPlaceDialog: {fileID: 8826120035837131335, guid: 4575156de4766ad42938a2b45736ac24, type: 3}
 --- !u!222 &1443035051
 CanvasRenderer:
   m_ObjectHideFlags: 0

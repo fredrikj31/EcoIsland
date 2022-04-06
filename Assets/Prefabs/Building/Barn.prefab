@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8644174183744898556}
   - component: {fileID: 8644174183744898559}
   - component: {fileID: 8644174183744898555}
-  - component: {fileID: 8644174183744898554}
   - component: {fileID: 8644174183744898557}
   m_Layer: 0
   m_Name: Barn
@@ -98,7 +97,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0049539804, y: 1.41}
+  m_Offset: {x: -0.0049542785, y: -0.011756375}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,21 +108,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0069058, y: 3.3734994}
+  m_Size: {x: 0.80127645, y: 0.89255595}
   m_EdgeRadius: 0
---- !u!114 &8644174183744898554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8644174183744898558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dacd04f98ad4551448e74a8d10c7bb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barnItems: {fileID: 0}
 --- !u!114 &8644174183744898557
 MonoBehaviour:
   m_ObjectHideFlags: 0
