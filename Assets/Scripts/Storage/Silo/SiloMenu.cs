@@ -41,8 +41,6 @@ namespace EcoIsland
 				GameObject selectObject = this.siloItems.transform.Find(item.cropName).gameObject;
 				Text cropText = selectObject.transform.GetChild(1).GetComponent<Text>();
 
-				print(item.cropAmount);
-
 				cropText.text = item.cropAmount.ToString();
 			}
 		}

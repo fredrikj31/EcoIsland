@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -11,6 +12,7 @@ namespace EcoIsland
 		public Vector3 hiddenPos;
 		private Vector3 position;
 		private GameObject menuObject;
+		private DateTime openedMenu;
 
 
 		// Start is called before the first frame update
@@ -33,7 +35,9 @@ namespace EcoIsland
 				}
 				else
 				{
-					this.closePopup();
+					if (this.openedMenu.AddSeconds(1.0f) < DateTime.Now) {
+						this.closePopup();
+					}
 				}
 			}
 		}
@@ -53,6 +57,7 @@ namespace EcoIsland
 
 		public void openPopup()
 		{
+			this.openedMenu = DateTime.Now;
 			this.GetComponent<RectTransform>().anchoredPosition = this.position;
 		}
 

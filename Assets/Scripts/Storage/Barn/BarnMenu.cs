@@ -42,8 +42,6 @@ namespace EcoIsland
 				GameObject selectObject = barnItems.transform.Find(item.itemName).gameObject;
 				Text cropText = selectObject.transform.GetChild(1).GetComponent<Text>();
 
-				print(item.itemAmount);
-
 				cropText.text = item.itemAmount.ToString();
 			}
 		}
