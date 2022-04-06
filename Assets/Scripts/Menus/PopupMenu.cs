@@ -10,6 +10,8 @@ namespace EcoIsland
 	public class PopupMenu : MonoBehaviour
 	{
 		public Vector3 hiddenPos;
+		public bool isVisible;
+
 		private Vector3 position;
 		private GameObject menuObject;
 		private DateTime openedMenu;
@@ -50,7 +52,6 @@ namespace EcoIsland
 
 		public void setPosition(Vector3 pos)
 		{
-			print(pos);
 			pos.y = pos.y + 1.25f;
 			this.position = pos;
 		}
@@ -70,6 +71,8 @@ namespace EcoIsland
 			{
 				GameObject.Destroy(child.gameObject);
 			}
+
+			this.isVisible = false;
 		}
 	}
 }

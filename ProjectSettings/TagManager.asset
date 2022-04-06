@@ -25,6 +25,7 @@ TagManager:
   - House
   - SiloItems
   - BarnItems
+  - PineTree
   layers:
   - Default
   - TransparentFX
