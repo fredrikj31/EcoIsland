@@ -34,6 +34,8 @@ namespace EcoIsland
 			}
 			if (this.saveSys.fileExists(this.objectsFilePath) == true) {
 				this.loadObjects();
+			} else {
+				this.saveObjects();
 			}
 		}
 
@@ -98,11 +100,11 @@ namespace EcoIsland
 
 				foreach (GameObject gameObject in removeObjects)
 				{
-					print("Destorying object");
 					Destroy(gameObject);
 				}
 			}
 
+			print(gameObjects.Count);
 			foreach (ObjectPrefab item in result)
 			{
 				Instantiate(gameObjects[item.name], new Vector3(item.xPos, item.yPos, item.zPos), new Quaternion(item.xRotation, item.yRotation, item.zRotation, item.wRotation));

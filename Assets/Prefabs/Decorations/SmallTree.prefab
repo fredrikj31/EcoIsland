@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8876348877852187086}
   m_Layer: 0
   m_Name: SmallTree
-  m_TagString: Decoration
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
