@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace EcoIsland
 {
 	public class EffectController : MonoBehaviour
 	{
 		public GameObject SaveController;
+		public Text effectsText;
+		public Slider effectsSlider;
 		private AudioSource audioPlayer;
 		private Setting settings;
 
@@ -21,10 +24,12 @@ namespace EcoIsland
 			if (this.settings.effectsEnabled == true)
 			{
 				this.audioPlayer.volume = this.settings.effectsVolumen;
+				this.updateText(this.settings.effectsVolumen);
 			}
 			else
 			{
 				this.audioPlayer.volume = 0f;
+				this.updateText(this.settings.effectsVolumen);
 			}
 		}
 
@@ -34,11 +39,21 @@ namespace EcoIsland
 			if (input.effectsEnabled == true)
 			{
 				effectController.volume = input.effectsVolumen;
+				this.updateText(input.effectsVolumen);
 			}
 			else
 			{
 				effectController.volume = 0;
+				this.updateText(input.effectsVolumen);
 			}
+		}
+
+		public void updateText(float input) {
+			this.effectsText.text = "Volumen: " + Mathf.Round(input * 100) + "%";
+		}
+
+		public void updatedSlider() {
+			this.updateText(effectsSlider.value);
 		}
 	}
 }
