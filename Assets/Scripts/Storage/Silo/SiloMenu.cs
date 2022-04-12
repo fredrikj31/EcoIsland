@@ -15,7 +15,7 @@ namespace EcoIsland
 		void Start()
 		{
 			this.siloMenu = GameObject.FindGameObjectWithTag("SiloMenu").transform.GetChild(0).gameObject;
-			this.siloItems = this.siloMenu.transform.GetChild(2).GetChild(0).GetChild(0).gameObject;
+			this.siloItems = this.siloMenu.transform.GetChild(2).gameObject;
 			this.siloStorage = GameObject.FindGameObjectWithTag("Silo").GetComponent<SiloStorage>();
 
 			StartCoroutine(this.updateUI());

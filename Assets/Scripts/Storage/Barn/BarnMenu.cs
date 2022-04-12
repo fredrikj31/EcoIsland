@@ -15,7 +15,7 @@ namespace EcoIsland
 		void Start()
 		{
 			this.barnMenu = GameObject.FindGameObjectWithTag("BarnMenu").transform.GetChild(0).gameObject;
-			this.barnItems = this.barnMenu.transform.GetChild(2).GetChild(0).GetChild(0).gameObject;
+			this.barnItems = this.barnMenu.transform.GetChild(2).gameObject;
 			this.barnStorage = GameObject.FindGameObjectWithTag("Barn").GetComponent<BarnStorage>();
 
 			StartCoroutine(this.updateUI());
