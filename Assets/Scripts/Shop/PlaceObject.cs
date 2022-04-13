@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -72,6 +73,9 @@ namespace EcoIsland
 
 							// Reload Objects
 							this.islandManager.reloadControllers();
+
+							// Load Scene
+							SceneManager.LoadScene("Main");	
 							return;
 						} else {
 							this.isPlacing = false;
