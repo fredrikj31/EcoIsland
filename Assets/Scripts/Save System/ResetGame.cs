@@ -34,11 +34,15 @@ namespace EcoIsland
 			}
 
 			// Then reload the scene
-			SceneManager.LoadScene("Main");
+			StartCoroutine(this.reloadScene());
 
 			// Then create the files with it's default content in it.
+		}
 
-			
+		private IEnumerator reloadScene() {
+			SceneManager.LoadScene("Main");
+			yield return new WaitForSeconds(0.5f);
+			SceneManager.LoadScene("Main");
 		}
 	}
 }
