@@ -67,5 +67,9 @@ namespace EcoIsland
 
 			return true;
 		}
+
+		public void deleteFile(string filePath) {
+			File.Delete(filePath);
+		}
 	}
 }
