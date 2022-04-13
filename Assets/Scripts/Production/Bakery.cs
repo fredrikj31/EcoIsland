@@ -9,7 +9,6 @@ namespace EcoIsland
 	public class Bakery : MonoBehaviour
 	{
 		public int bakeryStatus;
-		public Sprite[] progressImages;
 		public bool isFinished;
 		private GameObject barn;
 		private BarnStorage storage;
@@ -63,17 +62,16 @@ namespace EcoIsland
 				return;
 			}
 
-			// Update Progress Bar
-			int state = this.bread.getProgressBarTime();
-			this.bakeryMenu.transform.GetChild(3).gameObject.GetComponent<Image>().sprite = this.progressImages[state];
 			// Update Text
-			this.bakeryMenu.transform.GetChild(3).transform.GetChild(0).GetComponent<Text>().text = this.formatData(this.bread);
+			this.bakeryMenu.transform.GetChild(3).GetComponent<Text>().text = this.formatData(this.bread);
+			print(stage);
 			if (stage == 2) {
 				this.bread = null;
+				this.isFinished = true;
+				this.isBaking = false;
+				this.animator.SetInteger("bakeryStatus", 0);
 			} else if (stage == 1 || stage == 0) {
 				this.animator.SetInteger("bakeryStatus", 1);
-			} else {
-				this.animator.SetInteger("bakeryStatus", 0);
 			}
 		}
 

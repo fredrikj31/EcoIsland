@@ -49,14 +49,6 @@ namespace EcoIsland
 			return procents;
 		}
 
-		public int getProgressBarTime() {
-			// Calculate progress bar
-			double shares = 100 / 16;
-			int result = Convert.ToInt32(Math.Floor(Math.Round(this.getProcents()) / shares));
-
-			return result;
-		}
-
 		public TimeSpan getRemainingTime()
 		{
 			DateTime plantTime = this.startedTime;

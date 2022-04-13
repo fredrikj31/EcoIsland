@@ -23,10 +23,12 @@ namespace EcoIsland
 
 		void OnMouseDown()
 		{
+			StartCoroutine(this.updateUI());
 			this.siloMenu.SetActive(true);
 		}
 
 		public void closeMenu() {
+			StartCoroutine(this.updateUI());
 			this.siloMenu.SetActive(false);
 		}
 

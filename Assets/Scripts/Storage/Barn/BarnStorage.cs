@@ -106,8 +106,6 @@ namespace EcoIsland
 				{
 					selectedItem.itemAmount += 1;
 					this.saveItems(allItems);
-					// Updates the silo menu UI
-					this.GetComponent<BarnMenu>().updateUI();
 					return;
 				}
 			}

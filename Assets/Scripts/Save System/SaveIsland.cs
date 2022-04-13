@@ -104,7 +104,6 @@ namespace EcoIsland
 				}
 			}
 
-			print(gameObjects.Count);
 			foreach (ObjectPrefab item in result)
 			{
 				Instantiate(gameObjects[item.name], new Vector3(item.xPos, item.yPos, item.zPos), new Quaternion(item.xRotation, item.yRotation, item.zRotation, item.wRotation));
