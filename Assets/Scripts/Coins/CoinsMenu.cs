@@ -7,22 +7,22 @@ namespace EcoIsland
 public class CoinsMenu : MonoBehaviour
 {
     private GameObject barnItems;
-		private GameObject barnMenu;
+		private GameObject coinsMenu;
 
 		// Start is called before the first frame update
 		void Start()
 		{
-			this.barnMenu = GameObject.FindGameObjectWithTag("CoinsMenu").transform.GetChild(0).gameObject;
+			this.coinsMenu = GameObject.FindGameObjectWithTag("CoinsMenu").transform.GetChild(0).gameObject;
 		}
 
-		void OnMouseDown()
+		public void openMenu()
 		{
-			this.barnMenu.SetActive(true);
+			this.coinsMenu.SetActive(true);
 		}
 
 		public void closeMenu()
 		{
-			this.barnMenu.SetActive(false);
+			this.coinsMenu.SetActive(false);
 		}
 	}
 }
