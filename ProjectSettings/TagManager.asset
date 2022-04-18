@@ -26,6 +26,7 @@ TagManager:
   - SiloItems
   - BarnItems
   - Tree
+  - CoinsMenu
   layers:
   - Default
   - TransparentFX
