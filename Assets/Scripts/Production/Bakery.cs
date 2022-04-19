@@ -56,15 +56,9 @@ namespace EcoIsland
 			}
 
 			int stage = this.bread.checkTime();
-			if (stage == 2) {
-				this.isFinished = true;
-				this.isBaking = false;
-				return;
-			}
 
 			// Update Text
 			this.bakeryMenu.transform.GetChild(3).GetComponent<Text>().text = this.formatData(this.bread);
-			print(stage);
 			if (stage == 2) {
 				this.bread = null;
 				this.isFinished = true;

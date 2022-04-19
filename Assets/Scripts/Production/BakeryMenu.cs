@@ -21,6 +21,7 @@ public class BakeryMenu : MonoBehaviour
 	{
 		if (this.bakeryController.isFinished == true) {
 			this.barn.addItem(ItemTypes.Bread);
+			this.bakeryController.isFinished = false;
 		} else {
 			this.openMenu();
 		}
