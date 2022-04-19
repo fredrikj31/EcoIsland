@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8876348877852187081}
   - component: {fileID: 8876348877852187086}
+  - component: {fileID: -2917623359436527932}
+  - component: {fileID: -3720257079424531245}
   m_Layer: 0
   m_Name: SmallTree
   m_TagString: Tree
@@ -82,3 +84,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!61 &-2917623359436527932
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876348877852187087}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.015197635, y: 0.9768152}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.49113473, y: 0.142435}
+    oldSize: {x: 1.7142857, y: 3.4285715}
+    newSize: {x: 1.7142857, y: 3.4285715}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7142857, y: 2.634077}
+  m_EdgeRadius: 0
+--- !u!114 &-3720257079424531245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876348877852187087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f1746a03d80e84f9e328e04588463a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeChopDialog: {fileID: 4520922844670848335, guid: def7cde048b4efa45ab6619372669382, type: 3}
