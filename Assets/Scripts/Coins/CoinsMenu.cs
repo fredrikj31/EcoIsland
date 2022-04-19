@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace EcoIsland
 {	
-public class CoinsMenu : MonoBehaviour
-{
-    private GameObject barnItems;
+	public class CoinsMenu : MonoBehaviour
+	{
 		private GameObject coinsMenu;
 
 		// Start is called before the first frame update

@@ -27,6 +27,7 @@ TagManager:
   - BarnItems
   - Tree
   - CoinsMenu
+  - HelicopterMenu
   layers:
   - Default
   - TransparentFX

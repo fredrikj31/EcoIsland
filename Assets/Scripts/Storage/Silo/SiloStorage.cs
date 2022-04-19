@@ -146,7 +146,7 @@ namespace EcoIsland
 					item.cropAmount -= 1;
 					this.saveCrops(allCropItem);
 					// Updates the silo menu UI
-					this.updateUI();
+					//this.updateUI();
 					return;
 				}
 			}
